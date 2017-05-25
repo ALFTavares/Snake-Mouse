@@ -1,15 +1,21 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.movable.steerable;
 
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.GameObject;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.movable.RepresentableMovable;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.AbstractGridPosition;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.SimpleGraphicsGridPosition;
 
 /**
  * Created by codecadet on 25/05/17.
  */
-public class Mouse implements RepresentableMovableSteerable {
+public class Mouse extends GameObject implements RepresentableMovable{
 
     private AbstractGridPosition position;
     private Direction direction;
+
+    public Mouse () {
+
+    }
 
     public Mouse(AbstractGridPosition position, Direction direction){
         this.direction = direction;
@@ -55,12 +61,12 @@ public class Mouse implements RepresentableMovableSteerable {
 
     }
 
-    @Override
+
     public Direction getDirection() {
         return null;
     }
 
-    @Override
+
     public void setDirection(Direction direction) {
 
     }

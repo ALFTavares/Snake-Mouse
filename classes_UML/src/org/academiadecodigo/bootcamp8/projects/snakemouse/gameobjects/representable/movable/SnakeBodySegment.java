@@ -7,7 +7,7 @@ import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.AbstractGridPosit
 /**
  * Created by codecadet on 25/05/17.
  */
-public class SnakeBodySegment extends Snake implements RepresentableMovable{
+public class SnakeBodySegment implements RepresentableMovable{
 
     //METHODS
     public boolean isLastSegment(){

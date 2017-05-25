@@ -10,13 +10,19 @@ import java.util.ArrayList;
 /**
  * Created by codecadet on 25/05/17.
  */
-public class Snake {
+public class Snake extends GameObject {
 
     private int lifes;
     private SnakeHead head;
     private ArrayList<SnakeBodySegment> bodySegments;
 
     //COSTRUCTOR
+
+    public Snake() {
+        head = new SnakeHead();
+        bodySegments = new ArrayList<>();
+
+    }
 
 
     //METHODS

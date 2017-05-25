@@ -12,7 +12,7 @@ public class Game {
     public void init(){
         SplashScreen splashScreen = new SplashScreen();
         Hud hud = new Hud();
-        GameObjectsFactory gameObjectsFactory = new GameObjectsFactory();
+
 
     }
 
