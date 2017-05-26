@@ -1,16 +1,14 @@
-package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable;
+package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable;
 
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.GameObject;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.position.AbstractGridPosition;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.position.AbstractGridPosition;
 
 /**
  * Created by codecadet on 25/05/17.
  */
 public class Food extends GameObject implements Representable {
 
-   private AbstractGridPosition position;
-
-
+    private AbstractGridPosition position;
 
     private boolean crap = false;
 

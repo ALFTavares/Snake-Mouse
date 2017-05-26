@@ -1,4 +1,4 @@
-package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable;
+package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable;
 
 /**
  * Created by codecadet on 25/05/17.

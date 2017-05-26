@@ -1,7 +1,7 @@
-package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.movable.steerable;
+package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.representablemovable;
 
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.movable.RepresentableMovable;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.position.AbstractGridPosition;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.GridDirection;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.position.AbstractGridPosition;
 
 /**
  * Created by codecadet on 25/05/17.
@@ -9,13 +9,13 @@ import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.position.Abstract
 public class SnakeHead implements RepresentableMovable{
 
     private AbstractGridPosition position;
-    private Direction direction;
+    private GridDirection direction;
 
 
     public SnakeHead() {
 
     }
-    public SnakeHead(AbstractGridPosition position, Direction direction){
+    public SnakeHead(AbstractGridPosition position,GridDirection direction){
 
     }
 
@@ -51,12 +51,12 @@ public class SnakeHead implements RepresentableMovable{
     }
 
 
-    public Direction getDirection() {
+    public GridDirection getDirection() {
         return null;
     }
 
 
-    public void setDirection(Direction direction) {
+    public void setDirection(GridDirection direction) {
 
     }
 }

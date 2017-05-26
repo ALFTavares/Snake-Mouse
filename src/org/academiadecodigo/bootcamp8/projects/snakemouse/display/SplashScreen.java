@@ -1,6 +1,6 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.display;
 
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.Representable;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.Representable;
 
 /**
  * Created by codecadet on 25/05/17.

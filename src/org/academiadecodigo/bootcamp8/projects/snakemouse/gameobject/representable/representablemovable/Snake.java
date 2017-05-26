@@ -1,7 +1,6 @@
-package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects;
+package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.representablemovable;
 
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.movable.SnakeBodySegment;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.movable.steerable.SnakeHead;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
 
 import java.util.ArrayList;
 

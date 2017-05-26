@@ -1,10 +1,10 @@
-package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects;
+package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject;
 
 /**
  * Created by codecadet on 25/05/17.
  */
 public enum GameObjectType {
-    FIELD,
+    GRID,
     SNAKE,
     MOUSE,
     FOOD,

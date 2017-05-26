@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse;
 
 
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectsFactory;
 
 /**
  * Created by codecadet on 25/05/17.
@@ -8,6 +9,7 @@ package org.academiadecodigo.bootcamp8.projects.snakemouse;
 public class Main {
     public static void main(String[] args) {
         Game game = new Game();
+        GameObjectsFactory.createGrid(24,24);
 
     }
 
