@@ -1,4 +1,6 @@
-package org.academiadecodigo.bootcamp8.projects.snakemouse.grid;
+package org.academiadecodigo.bootcamp8.projects.snakemouse.simplegfx;
+
+import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.position.AbstractGridPosition;
 
 /**
  * Created by codecadet on 25/05/17.

@@ -1,8 +1,7 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable;
 
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.GameObject;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.movable.steerable.Direction;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.AbstractGridPosition;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.position.AbstractGridPosition;
 
 /**
  * Created by codecadet on 25/05/17.

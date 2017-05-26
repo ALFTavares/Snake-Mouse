@@ -2,8 +2,7 @@ package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.represent
 
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.GameObject;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobjects.representable.movable.RepresentableMovable;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.AbstractGridPosition;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.SimpleGraphicsGridPosition;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.grid.position.AbstractGridPosition;
 
 /**
  * Created by codecadet on 25/05/17.
