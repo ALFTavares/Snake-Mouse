@@ -12,16 +12,17 @@ import org.academiadecodigo.bootcamp8.projects.snakemouse.simplegfx.SimpleGraphi
  */
 public class GameObjectsFactory {
 
-    public static GameObject createGameObjects(){
-            GameObject snake = new Snake();
-            GameObject mouse = new Mouse();
-            GameObject food = new Food();
-            return null;
-        }
+    public static GameObject createGameObjects() {
+
+        GameObject snake = new Snake();
+        GameObject mouse = new Mouse();
+        GameObject food = new Food();
+        return null;
+    }
 
     public static GameObject createGrid(int cols, int rows) {
 
         return new SimpleGraphicsGrid(cols,rows);
-        }
     }
+}
 

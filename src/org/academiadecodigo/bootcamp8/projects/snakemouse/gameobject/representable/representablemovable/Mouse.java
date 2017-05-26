@@ -12,23 +12,24 @@ public class Mouse extends GameObject implements RepresentableMovable{
     private AbstractGridPosition position;
     private GridDirection direction;
 
-    public Mouse () {
+    public Mouse() {
 
     }
 
     public Mouse(AbstractGridPosition position, GridDirection direction){
         this.direction = direction;
         this.position = position;
-
     }
 
     public int getLifes(){return 0;}
 
-    public void eatFood(){}
+    public void eatFood(){
 
-    public void crap(){}
+    }
 
+    public void crap(){
 
+    }
 
     @Override
     public int getXpos() {

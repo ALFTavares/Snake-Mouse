@@ -8,13 +8,15 @@ import org.academiadecodigo.bootcamp8.projects.snakemouse.display.SplashScreen;
  */
 public class Game {
 
-    public void init(){
+    public void init() {
+
         SplashScreen splashScreen = new SplashScreen();
         Hud hud = new Hud();
 
-
     }
 
-    public void start(){}
+    public void start() {
+
+    }
 
 }

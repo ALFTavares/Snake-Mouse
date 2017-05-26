@@ -10,4 +10,5 @@ public interface RepresentableMovable extends Representable{
     void move();
 
     void collisionDetect();
+
 }

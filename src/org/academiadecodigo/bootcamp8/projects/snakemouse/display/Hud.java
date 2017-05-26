@@ -7,13 +7,21 @@ import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representab
  */
 public class Hud implements Representable{
 
-    public void showLifes(){}
+    public void showLifes() {
 
-    public void showTime(){}
+    }
 
-    public void showGameOver(){}
+    public void showTime() {
 
-    public void showWinner(){}
+    }
+
+    public void showGameOver() {
+
+    }
+
+    public void showWinner() {
+
+    }
 
     @Override
     public int getXpos() {

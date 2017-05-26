@@ -11,5 +11,4 @@ public abstract class AbstractGridPosition implements Grid{
     private int cols;
     private int rows;
     private Grid grid;
-
 }

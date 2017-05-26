@@ -32,5 +32,4 @@ public enum GridDirection {
         }
         return opposite;
     }
-
 }

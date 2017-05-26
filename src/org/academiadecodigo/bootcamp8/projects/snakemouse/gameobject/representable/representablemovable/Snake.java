@@ -14,13 +14,11 @@ public class Snake extends GameObject {
     private ArrayList<SnakeBodySegment> bodySegments;
 
     //COSTRUCTOR
-
     public Snake() {
         head = new SnakeHead();
         bodySegments = new ArrayList<>();
 
     }
-
 
     //METHODS
     public int getLifes(){

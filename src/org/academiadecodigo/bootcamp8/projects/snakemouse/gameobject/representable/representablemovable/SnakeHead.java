@@ -15,10 +15,10 @@ public class SnakeHead implements RepresentableMovable{
     public SnakeHead() {
 
     }
+
     public SnakeHead(AbstractGridPosition position,GridDirection direction){
 
     }
-
 
     @Override
     public int getXpos() {
@@ -50,11 +50,9 @@ public class SnakeHead implements RepresentableMovable{
 
     }
 
-
     public GridDirection getDirection() {
         return null;
     }
-
 
     public void setDirection(GridDirection direction) {
 
