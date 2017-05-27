@@ -10,7 +10,9 @@ public class Main {
     public static void main(String[] args) {
 
         Game game = new Game();
-        GameObjectsFactory.createGrid(24,24);
+        game.init();
+        game.start();
+        //GameObjectsFactory.createGrid(24,24);
 
     }
 

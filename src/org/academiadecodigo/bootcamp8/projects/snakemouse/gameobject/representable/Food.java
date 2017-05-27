@@ -10,6 +10,7 @@ public class Food extends GameObject implements Representable {
 
     private AbstractGridPosition position;
     private boolean crap = false;
+
     public boolean isShit() {
         return crap;
     }
