@@ -17,5 +17,7 @@ public interface GridPosition {
 
     public void hide();
 
-    public void moveInDirection(GridDirection gridDirection);
+    public void moveInDirection(GridDirection direction);
+
+    public boolean equals(GridPosition position);
 }

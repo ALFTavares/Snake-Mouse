@@ -13,6 +13,7 @@ public class Game {
         SplashScreen splashScreen = new SplashScreen();
         Hud hud = new Hud();
 
+
     }
 
     public void start() {

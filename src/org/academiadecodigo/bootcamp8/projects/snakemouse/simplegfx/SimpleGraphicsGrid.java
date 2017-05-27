@@ -17,6 +17,17 @@ public class SimpleGraphicsGrid extends GameObject implements Grid {
     private int cellSize = 24;
     private Rectangle grid;
 
+    public SimpleGraphicsGrid(int cols, int rows) {
+        this.cols = cols;
+        this.rows = rows;
+
+        this.grid = new Rectangle(PADDING,PADDING,cols * cellSize, rows * cellSize);
+    }
+
+    public void init() {
+        grid.draw();
+    }
+
     @Override
     public int getCols() {
         return 0;
@@ -27,26 +38,42 @@ public class SimpleGraphicsGrid extends GameObject implements Grid {
         return 0;
     }
 
+    public int getWidth(){
+        return cols * getCellSize();
+    }
+
+    public int getHeight(){
+        return rows * getCellSize();
+    }
+
+    public int getX(){
+        return grid.getX();
+    }
+
+    public int getY(){
+        return grid.getY();
+    }
+
+    public int getCellSize() {
+        return cellSize;
+    }
+
     @Override
     public GridPosition makeGridPosition() {
-        return null;
+        return new SimpleGraphicsGridPosition(this);
     }
 
     @Override
     public GridPosition makeGridPosition(int col, int row) {
-        return null;
+        return new SimpleGraphicsGridPosition(col, row, this);
     }
 
-    public SimpleGraphicsGrid(int cols, int rows) {
-        this.cols = cols;
-        this.rows = rows;
-        this.grid = new Rectangle(PADDING,PADDING,cols * cellSize, rows * cellSize);
-        init();
+    public int rowToY(int row){
+        return row * cellSize + PADDING;
     }
 
-    public void init() {
-
-        grid.draw();
+    public int columnToX(int column){
+        return column * cellSize + PADDING;
     }
 
 
