@@ -17,8 +17,11 @@ public class GameObjectsFactory {
         return new SimpleGraphicsGrid(cols,rows);
     }
 
-    public static Food createFood() {
-        return null;
+    public static Food createFood(Grid grid) {
+
+        Food food = new Food(grid.makeGridPosition());
+
+        return food;
     }
 
     public static Mouse createMouse() {
