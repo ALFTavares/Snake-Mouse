@@ -20,11 +20,12 @@ public class Game {
         //SplashScreen splashScreen = new SplashScreen();
         //Hud hud = new Hud();
         grid = GameObjectsFactory.createGrid(24, 24);
-        food = GameObjectsFactory.createFood(grid);
     }
 
     public void start() {
+        
         grid.init();
+        food = GameObjectsFactory.createFood(grid);
     }
 
 }

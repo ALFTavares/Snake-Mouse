@@ -1,10 +1,9 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.simplegfx;
 
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectType;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.Grid;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
 /**
@@ -18,16 +17,19 @@ public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
     private int rows;
     private int cellSize = 24;
     private Rectangle grid;
+    private Picture pic;
 
     public SimpleGraphicsGrid(int cols, int rows) {
         this.cols = cols;
         this.rows = rows;
 
-        this.grid = new Rectangle(PADDING,PADDING,cols * cellSize, rows * cellSize);
+        pic = new Picture(0, 0, "img/bg.png");
+        this.grid = new Rectangle(PADDING, PADDING, getWidth(), getHeight());
     }
 
     public void init() {
         grid.draw();
+        pic.draw();
     }
 
     @Override
@@ -77,6 +79,4 @@ public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
     public int columnToX(int column){
         return column * cellSize + PADDING;
     }
-
-
 }
