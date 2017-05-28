@@ -1,6 +1,8 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.representablemovable;
 
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectType;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.position.GridPosition;
 
 import java.util.ArrayList;
 
@@ -14,7 +16,8 @@ public class Snake extends GameObject {
     private ArrayList<SnakeBodySegment> bodySegments;
 
     //COSTRUCTOR
-    public Snake() {
+    public Snake(GridPosition position) {
+        super(position, GameObjectType.SNAKE);
         head = new SnakeHead();
         bodySegments = new ArrayList<>();
 

@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.simplegfx;
 
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectType;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.Grid;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.position.GridPosition;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
@@ -9,11 +10,12 @@ import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 /**
  * Created by codecadet on 26/05/17.
  */
-public class SimpleGraphicsGrid extends GameObject implements Grid {
+public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
+
+    public static final int PADDING = 10;
 
     private int cols;
     private int rows;
-    private static final int PADDING = 10;
     private int cellSize = 24;
     private Rectangle grid;
 
@@ -30,12 +32,12 @@ public class SimpleGraphicsGrid extends GameObject implements Grid {
 
     @Override
     public int getCols() {
-        return 0;
+        return cols;
     }
 
     @Override
     public int getRows() {
-        return 0;
+        return rows;
     }
 
     public int getWidth(){

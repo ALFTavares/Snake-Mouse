@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject;
 
-import org.academiadecodigo.bootcamp8.projects.snakemouse.Game;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.representablemovable.Snake;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.Grid;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.Food;
@@ -17,8 +16,11 @@ public class GameObjectsFactory {
         return new SimpleGraphicsGrid(cols,rows);
     }
 
-    public static Food createFood() {
-        return null;
+    public static Food createFood(Grid grid) {
+
+        Food food = new Food(grid.makeGridPosition());
+
+        return food;
     }
 
     public static Mouse createMouse() {

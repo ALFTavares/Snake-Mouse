@@ -1,8 +1,10 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.representablemovable;
 
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectType;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.GridDirection;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.position.AbstractGridPosition;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.position.GridPosition;
 
 /**
  * Created by codecadet on 25/05/17.
@@ -12,14 +14,14 @@ public class Mouse extends GameObject implements RepresentableMovable{
     private AbstractGridPosition position;
     private GridDirection direction;
 
-    public Mouse() {
-
+    public Mouse(GridPosition position) {
+        super(position, GameObjectType.MOUSE);
     }
 
-    public Mouse(AbstractGridPosition position, GridDirection direction){
-        this.direction = direction;
-        this.position = position;
-    }
+//    public Mouse(AbstractGridPosition position, GridDirection direction) {
+//        this.direction = direction;
+//        this.position = position;
+//    }
 
     public int getLifes(){return 0;}
 
