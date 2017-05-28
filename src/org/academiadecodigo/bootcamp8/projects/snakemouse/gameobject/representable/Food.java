@@ -19,12 +19,14 @@ public class Food extends GameObject implements Representable {
 
     public Food(GridPosition position) {
         super(position, GameObjectType.FOOD);
-        int x = position.getCol() + SimpleGraphicsGrid.PADDING;
-        int y = position.getRow() + SimpleGraphicsGrid.PADDING;
-        pic = new Picture(x * SimpleGraphicsGrid.PADDING,
-                y * SimpleGraphicsGrid.PADDING,
+        this.position = position;
+        int x = position.getCol() * SimpleGraphicsGrid.CELLSIZE;
+        int y = position.getRow() * SimpleGraphicsGrid.CELLSIZE;
+        pic = new Picture(x - SimpleGraphicsGrid.PADDING * SimpleGraphicsGrid.CELLSIZE,
+                y - SimpleGraphicsGrid.PADDING * SimpleGraphicsGrid.CELLSIZE,
                 "img/food.png");
         pic.draw();
+
     }
 
     //If the mouse eats the food, it becomes poop
@@ -34,7 +36,7 @@ public class Food extends GameObject implements Representable {
 
     @Override
     public int getXpos() {
-        return position.getCol();
+        return position.getCol() * SimpleGraphicsGrid.CELLSIZE;
     }
 
     @Override

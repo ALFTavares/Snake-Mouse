@@ -12,10 +12,10 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
 
     public static final int PADDING = 10;
+    public static final int CELLSIZE = 24;
 
     private int cols;
     private int rows;
-    private int cellSize = 24;
     private Rectangle grid;
     private Picture pic;
 
@@ -59,7 +59,7 @@ public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
     }
 
     public int getCellSize() {
-        return cellSize;
+        return CELLSIZE;
     }
 
     @Override
@@ -73,10 +73,10 @@ public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
     }
 
     public int rowToY(int row) {
-        return row * cellSize + PADDING;
+        return row * CELLSIZE + PADDING;
     }
 
     public int columnToX(int column) {
-        return column * cellSize + PADDING;
+        return column * CELLSIZE + PADDING;
     }
 }
