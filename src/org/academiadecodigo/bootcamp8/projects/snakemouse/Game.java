@@ -17,6 +17,8 @@ public class Game implements KeyboardHandler {
     private Grid grid;
     private GameObject food;
     private SplashScreen splashScreen;
+    private Keyboard k;
+    private KeyboardEvent event;
 
     public void init() {
 
@@ -27,8 +29,8 @@ public class Game implements KeyboardHandler {
 
     public void spaceKey() {
 
-        Keyboard k = new Keyboard(this);
-        KeyboardEvent event = new KeyboardEvent();
+        k = new Keyboard(this);
+        event = new KeyboardEvent();
         event.setKey(KeyboardEvent.KEY_SPACE);
         event.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         k.addEventListener(event);
@@ -38,6 +40,7 @@ public class Game implements KeyboardHandler {
     public void keyPressed(KeyboardEvent e) {
         splashScreen.hide();
         start();
+        k.removeEventListener(event);
     }
 
     @Override
