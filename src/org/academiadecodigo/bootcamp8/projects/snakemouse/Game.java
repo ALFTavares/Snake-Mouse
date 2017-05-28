@@ -1,10 +1,7 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse;
 
-import org.academiadecodigo.bootcamp8.projects.snakemouse.display.Hud;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.display.SplashScreen;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectsFactory;
-import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.Food;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.Grid;
 
 /**
@@ -23,9 +20,8 @@ public class Game {
     }
 
     public void start() {
-        
+
         grid.init();
         food = GameObjectsFactory.createFood(grid);
     }
-
 }

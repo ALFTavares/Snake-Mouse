@@ -42,19 +42,19 @@ public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
         return rows;
     }
 
-    public int getWidth(){
+    public int getWidth() {
         return cols * getCellSize();
     }
 
-    public int getHeight(){
+    public int getHeight() {
         return rows * getCellSize();
     }
 
-    public int getX(){
+    public int getX() {
         return grid.getX();
     }
 
-    public int getY(){
+    public int getY() {
         return grid.getY();
     }
 
@@ -72,11 +72,11 @@ public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
         return new SimpleGraphicsGridPosition(col, row, this);
     }
 
-    public int rowToY(int row){
+    public int rowToY(int row) {
         return row * cellSize + PADDING;
     }
 
-    public int columnToX(int column){
+    public int columnToX(int column) {
         return column * cellSize + PADDING;
     }
 }
