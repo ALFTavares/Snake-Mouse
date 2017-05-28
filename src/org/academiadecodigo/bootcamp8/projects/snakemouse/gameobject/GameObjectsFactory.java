@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject;
 
-import org.academiadecodigo.bootcamp8.projects.snakemouse.Game;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.representablemovable.Snake;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.Grid;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.Food;

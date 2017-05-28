@@ -32,12 +32,12 @@ public class SimpleGraphicsGrid /*extends GameObject*/ implements Grid {
 
     @Override
     public int getCols() {
-        return 0;
+        return cols;
     }
 
     @Override
     public int getRows() {
-        return 0;
+        return rows;
     }
 
     public int getWidth(){

@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectType;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.position.GridPosition;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.simplegfx.SimpleGraphicsGrid;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.simplegfx.SimpleGraphicsGridPosition;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
@@ -14,11 +15,14 @@ public class Food extends GameObject implements Representable {
 
     private boolean crap = false;
     private Picture pic;
+    private GridPosition position;
 
     public Food(GridPosition position) {
         super(position, GameObjectType.FOOD);
-        pic = new Picture(getXpos() + SimpleGraphicsGrid.PADDING,
-                getYpos() + SimpleGraphicsGrid.PADDING,
+        int x = position.getCol() + SimpleGraphicsGrid.PADDING;
+        int y = position.getRow() + SimpleGraphicsGrid.PADDING;
+        pic = new Picture(x * SimpleGraphicsGrid.PADDING,
+                y * SimpleGraphicsGrid.PADDING,
                 "img/food.png");
         pic.draw();
     }
@@ -30,12 +34,12 @@ public class Food extends GameObject implements Representable {
 
     @Override
     public int getXpos() {
-        return 0;
+        return position.getCol();
     }
 
     @Override
     public int getYpos() {
-        return 0;
+        return position.getRow();
     }
 
     @Override

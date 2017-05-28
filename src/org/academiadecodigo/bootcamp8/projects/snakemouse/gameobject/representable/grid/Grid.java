@@ -8,14 +8,14 @@ import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representab
  */
 public interface Grid {
 
-    public void init();
+    void init();
 
-    public int getCols();
+    int getCols();
 
-    public int getRows();
+    int getRows();
 
-    public GridPosition makeGridPosition();
+    GridPosition makeGridPosition();
 
-    public GridPosition makeGridPosition(int col, int row);
+    GridPosition makeGridPosition(int col, int row);
 
 }

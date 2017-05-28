@@ -14,10 +14,12 @@ public class SimpleGraphicsGridPosition extends AbstractGridPosition {
     private SimpleGraphicsGrid simpleGraphicsGrid;
 
     public SimpleGraphicsGridPosition(SimpleGraphicsGrid grid){
-        super((int) (Math.random() * grid.getCols()), (int) (Math.random() * grid.getRows()), grid);
+        super((int) (Math.random() * (grid.getCols()) + SimpleGraphicsGrid.PADDING),
+                (int) (Math.random() * (grid.getRows()) + SimpleGraphicsGrid.PADDING),
+                grid);
         simpleGraphicsGrid = grid;
-        rectangle = new Rectangle(grid.columnToX(getCol()), grid.rowToY(getRow()), grid.getCellSize(), grid.getCellSize());
-        show();
+        //rectangle = new Rectangle(grid.columnToX(getCol()), grid.rowToY(getRow()), grid.getCellSize(), grid.getCellSize());
+        //show();
     }
 
     public SimpleGraphicsGridPosition(int col, int row, SimpleGraphicsGrid grid){
@@ -29,7 +31,7 @@ public class SimpleGraphicsGridPosition extends AbstractGridPosition {
 
     @Override
     public void show() {
-        rectangle.fill();
+        rectangle.draw();
     }
 
     @Override
