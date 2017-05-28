@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp8.projects.snakemouse.display.SplashScreen;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObject;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectsFactory;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.grid.Grid;
+import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.representable.representablemovable.Mouse;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -16,6 +17,7 @@ public class Game implements KeyboardHandler {
 
     private Grid grid;
     private GameObject food;
+    private GameObject mouse;
     private SplashScreen splashScreen;
     private Keyboard k;
     private KeyboardEvent event;
@@ -40,7 +42,7 @@ public class Game implements KeyboardHandler {
     public void keyPressed(KeyboardEvent e) {
         splashScreen.hide();
         start();
-        k.removeEventListener(event);
+        //k.removeEventListener(event);
     }
 
     @Override
@@ -59,5 +61,9 @@ public class Game implements KeyboardHandler {
         grid.init();
         //Hud hud = new Hud();
         food = GameObjectsFactory.createFood(grid);
+       mouse = GameObjectsFactory.createMouse(grid);
+
+        System.out.println(mouse.getPosition());
+        //System.out.println(mouse.getXpos() +"  "+mouse.getYpos() );
     }
 }

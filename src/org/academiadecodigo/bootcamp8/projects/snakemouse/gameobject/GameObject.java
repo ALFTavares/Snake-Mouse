@@ -20,6 +20,9 @@ public abstract class GameObject {
         this.objectType = objectType;
     }
 
+    protected GameObject() {
+    }
+
     public void setGrid(Grid grid) {
         this.grid = grid;
     }
@@ -27,4 +30,15 @@ public abstract class GameObject {
     public GridPosition getPosition() {
         return position;
     }
+
+    public int getXpos() {
+        return position.getCol();
+    }
+
+
+    public int getYpos() {
+        return position.getCol();
+    }
+
+
 }

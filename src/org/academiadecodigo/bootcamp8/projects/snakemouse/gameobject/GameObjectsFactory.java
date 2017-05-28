@@ -23,8 +23,10 @@ public class GameObjectsFactory {
         return food;
     }
 
-    public static Mouse createMouse() {
-        return null ;
+    public static Mouse createMouse(Grid grid) {
+        Mouse mouse = new Mouse();
+
+        return mouse;
     }
 
     public static Snake createSnake() {

@@ -20,6 +20,9 @@ public abstract class AbstractGridPosition implements GridPosition{
         this.grid = grid;
     }
 
+    public AbstractGridPosition(){}
+
+
     public Grid getGrid() {
         return grid;
     }

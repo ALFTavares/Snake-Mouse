@@ -29,6 +29,8 @@ public class SimpleGraphicsGridPosition extends AbstractGridPosition {
         show();
     }
 
+
+
     @Override
     public void show() {
         rectangle.draw();
