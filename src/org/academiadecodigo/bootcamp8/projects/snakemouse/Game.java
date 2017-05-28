@@ -25,7 +25,7 @@ public class Game implements KeyboardHandler {
 
     }
 
-    public void enterKey() {
+    public void spaceKey() {
 
         Keyboard k = new Keyboard(this);
         KeyboardEvent event = new KeyboardEvent();
@@ -48,7 +48,7 @@ public class Game implements KeyboardHandler {
     public void show() {
 
         splashScreen.show();
-        enterKey();
+        spaceKey();
     }
 
     public void start() {
