@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp8.projects.snakemouse;
 
 
+import org.academiadecodigo.bootcamp8.projects.snakemouse.display.SplashScreen;
 import org.academiadecodigo.bootcamp8.projects.snakemouse.gameobject.GameObjectsFactory;
 
 /**
