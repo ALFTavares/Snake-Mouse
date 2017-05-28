@@ -12,8 +12,7 @@ public class Main {
 
         Game game = new Game();
         game.init();
-        game.start();
-        //GameObjectsFactory.createGrid(24,24);
+        game.show();
 
     }
 

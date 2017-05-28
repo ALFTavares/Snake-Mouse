@@ -22,6 +22,7 @@ public class Game implements KeyboardHandler {
 
         splashScreen = new SplashScreen();
         grid = GameObjectsFactory.createGrid(24, 24);
+
     }
 
     public void enterKey() {
@@ -36,9 +37,7 @@ public class Game implements KeyboardHandler {
     @Override
     public void keyPressed(KeyboardEvent e) {
         splashScreen.hide();
-        grid.init();
-        food = GameObjectsFactory.createFood(grid);
-        //Hud hud = new Hud();
+        start();
     }
 
     @Override
@@ -46,9 +45,16 @@ public class Game implements KeyboardHandler {
 
     }
 
-    public void start() {
+    public void show() {
 
         splashScreen.show();
         enterKey();
+    }
+
+    public void start() {
+
+        grid.init();
+        //Hud hud = new Hud();
+        food = GameObjectsFactory.createFood(grid);
     }
 }
