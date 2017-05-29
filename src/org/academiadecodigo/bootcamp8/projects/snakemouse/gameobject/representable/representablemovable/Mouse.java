@@ -14,60 +14,30 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Mouse extends GameObject implements RepresentableMovable{
 
     private GridPosition position;
-
     private GridDirection direction;
-    private Picture picLeft;
-    private Picture picUp;
-    private Picture picRight;
-    private Picture picDown;
+    private Picture[] pics;
 
+    private boolean dead;
+    private int lives = 3;
 
     private final int initialPositionX = 20;
     private final int initialPositionY = 20;
 
     public Mouse() {
-
         int x = initialPositionX * SimpleGraphicsGrid.CELLSIZE;
         int y = initialPositionY * SimpleGraphicsGrid.CELLSIZE;
-        picLeft = new Picture(x,y,
-                "img/mouseLeft.png");
-
-        picLeft.draw();
-
-
-    }
-/*
-    public Mouse(GridPosition position) {
-        super(position, GameObjectType.MOUSE);
-
-
-        this.position = position;
-        int x = initialPositionX * SimpleGraphicsGrid.CELLSIZE;
-        int y = initialPositionY * SimpleGraphicsGrid.CELLSIZE;
-        picLeft = new Picture(x - SimpleGraphicsGrid.PADDING * SimpleGraphicsGrid.CELLSIZE,
-                y - SimpleGraphicsGrid.PADDING * SimpleGraphicsGrid.CELLSIZE,
-                "img/mouseLeft.png");
-
-        picLeft.draw();
-
+        pics = new Picture[]{new Picture(x, y, "img/mouseLeft.png"),
+                            new Picture(x, y, "img/mouseUp.png"),
+                            new Picture(x, y, "img/mouseRight.png"),
+                            new Picture(x, y, "img/mouseDown.png")};
 
     }
-*/
 
     public GridPosition getPosition(){
         return this.position;
     }
 
-
-
-
-
-//    public Mouse(AbstractGridPosition position, GridDirection direction) {
-//        this.direction = direction;
-//        this.position = position;
-//    }
-
-    public int getLifes(){return 0;}
+    public int getLifes(){return lives;}
 
     public void eatFood(){
 
@@ -81,6 +51,7 @@ public class Mouse extends GameObject implements RepresentableMovable{
 
     @Override
     public void show() {
+        pics[1].draw();
 
     }
 
@@ -91,6 +62,7 @@ public class Mouse extends GameObject implements RepresentableMovable{
 
     @Override
     public void move() {
+
 
     }
 
