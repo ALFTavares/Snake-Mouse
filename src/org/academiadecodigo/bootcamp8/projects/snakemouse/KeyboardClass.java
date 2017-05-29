@@ -16,7 +16,9 @@ public class KeyboardClass implements KeyboardHandler{
     private GridDirection direction;
     private Keyboard k = new Keyboard(this);
 
-    public KeyboardClass(){
+    public KeyboardClass(Game game){
+        this.game = game;
+        //game = new Game();
         keyboardStart();
     }
 
@@ -102,10 +104,11 @@ public class KeyboardClass implements KeyboardHandler{
         if (keyboardEvent.getKey() == keyboardEvent.KEY_RIGHT ||  keyboardEvent.getKey() == KeyboardEvent.KEY_D){
             direction=GridDirection.RIGHT;
         }
-        if (keyboardEvent.getKey() == keyboardEvent.KEY_SPACE){
-            game.getSplashScreen().hide();
-            game.start();
-            //k.removeEventListener();
+        if (keyboardEvent.getKey() == keyboardEvent.KEY_SPACE) {
+
+                game.getSplashScreen().hide();
+                game.start();
+
 
         }
 

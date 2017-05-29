@@ -20,11 +20,12 @@ public class Game {
     private Keyboard k;
     //private KeyboardEvent event;
     private KeyboardClass keyboardClass;
+    private boolean startYN;
 
     public Game(){
-        keyboardClass = new KeyboardClass();
+        keyboardClass = new KeyboardClass(this);
         //event = new KeyboardEvent();
-        keyboardClass.keyboardStart();
+        //keyboardClass.keyboardStart();
     }
 
 
@@ -63,6 +64,7 @@ public class Game {
 */
     public void show() {
 
+        //Keyboard k3 = new Keyboard();
         splashScreen.show();
         //spaceKey();
         keyboardClass.keyboardStart();
@@ -70,9 +72,15 @@ public class Game {
     }
 
     public void start() {
+        if (startYN) {
+            return;
+        }else {
 
-        grid.init();
-        //Hud hud = new Hud();
-        food = GameObjectsFactory.createFood(grid);
+            grid.init();
+            //Hud hud = new Hud();
+            food = GameObjectsFactory.createFood(grid);
+            startYN=true;
+        }
+
     }
 }
