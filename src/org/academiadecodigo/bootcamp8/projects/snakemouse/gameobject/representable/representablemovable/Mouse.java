@@ -29,8 +29,7 @@ public class Mouse extends GameObject implements RepresentableMovable{
 
         int x = initialPositionX * SimpleGraphicsGrid.CELLSIZE;
         int y = initialPositionY * SimpleGraphicsGrid.CELLSIZE;
-        picLeft = new Picture(x - SimpleGraphicsGrid.PADDING * SimpleGraphicsGrid.CELLSIZE,
-                y - SimpleGraphicsGrid.PADDING * SimpleGraphicsGrid.CELLSIZE,
+        picLeft = new Picture(x,y,
                 "img/mouseLeft.png");
 
         picLeft.draw();
