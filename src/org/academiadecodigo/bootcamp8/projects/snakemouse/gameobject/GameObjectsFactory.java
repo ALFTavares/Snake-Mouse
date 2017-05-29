@@ -24,7 +24,7 @@ public class GameObjectsFactory {
     }
 
     public static Mouse createMouse(Grid grid) {
-        Mouse mouse = new Mouse();
+        Mouse mouse = new Mouse(grid.makeGridPosition());
 
         return mouse;
     }
