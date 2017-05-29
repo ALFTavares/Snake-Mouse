@@ -13,14 +13,27 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 /**
  * Created by codecadet on 25/05/17.
  */
-public class Game implements KeyboardHandler {
+public class Game {
 
     private Grid grid;
     private GameObject food;
     private GameObject mouse;
     private SplashScreen splashScreen;
     private Keyboard k;
-    private KeyboardEvent event;
+    //private KeyboardEvent event;
+    private KeyboardClass keyboardClass;
+
+    public Game(){
+        keyboardClass = new KeyboardClass();
+        //event = new KeyboardEvent();
+        keyboardClass.keyboardStart();
+    }
+
+
+    public SplashScreen getSplashScreen(){
+        return splashScreen;
+    }
+
 
     public void init() {
 
@@ -28,7 +41,7 @@ public class Game implements KeyboardHandler {
         grid = GameObjectsFactory.createGrid(24, 24);
 
     }
-
+/*
     public void spaceKey() {
 
         k = new Keyboard(this);
@@ -49,11 +62,13 @@ public class Game implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
     }
-
+*/
     public void show() {
 
         splashScreen.show();
-        spaceKey();
+        //spaceKey();
+        keyboardClass.keyboardStart();
+
     }
 
     public void start() {
