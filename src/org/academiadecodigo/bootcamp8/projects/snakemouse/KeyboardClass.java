@@ -92,18 +92,35 @@ public class KeyboardClass implements KeyboardHandler{
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-        if (keyboardEvent.getKey() == KeyboardEvent.KEY_UP || keyboardEvent.getKey() == KeyboardEvent.KEY_W){
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_UP){
             direction=GridDirection.UP;
         }
-        if (keyboardEvent.getKey() == keyboardEvent.KEY_DOWN ||  keyboardEvent.getKey() == KeyboardEvent.KEY_S){
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_W){
+            direction=GridDirection.UP;
+        }
+        if (keyboardEvent.getKey() == keyboardEvent.KEY_DOWN){
             direction=GridDirection.DOWN;
         }
-        if (keyboardEvent.getKey() == keyboardEvent.KEY_LEFT ||  keyboardEvent.getKey() == KeyboardEvent.KEY_A){
+        
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
+            direction = GridDirection.DOWN;
+        }
+        if (keyboardEvent.getKey() == keyboardEvent.KEY_LEFT){
             direction=GridDirection.LEFT;
         }
-        if (keyboardEvent.getKey() == keyboardEvent.KEY_RIGHT ||  keyboardEvent.getKey() == KeyboardEvent.KEY_D){
+
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_A) {
+            direction = GridDirection.LEFT;
+        }
+
+        if (keyboardEvent.getKey() == keyboardEvent.KEY_RIGHT){
             direction=GridDirection.RIGHT;
         }
+
+        if (keyboardEvent.getKey() == KeyboardEvent.KEY_D) {
+            direction = GridDirection.RIGHT;
+        }
+
         if (keyboardEvent.getKey() == keyboardEvent.KEY_SPACE) {
 
                 game.getSplashScreen().hide();
