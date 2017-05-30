@@ -27,37 +27,34 @@ public class Mouse {
     private Picture picDown;
 
 
-
-
     public Mouse(GridPosition gridPosition) {
         this.position = gridPosition;
-       // this.direction = GridDirection.LEFT;
         mouseKeyboard = new MouseKeyboard();
 
 
-        picLeft = new Picture(position.getCol()* SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,position.getRow()* SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
+        picLeft = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/mouseLeft.png");
-        picRight = new Picture(position.getCol()* SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,position.getRow()* SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
+        picRight = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/mouseRight.png");
-        picUp = new Picture(position.getCol()* SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,position.getRow()* SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
+        picUp = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/mouseUp.png");
-        picDown = new Picture(position.getCol()* SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,position.getRow()* SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
+        picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/mouseDown.png");
 
         picLeft.draw();
     }
 
 
-
-
     public void move(int dir) {
-       // this.direction = direction;
+        // this.direction = direction;
 
-        switch (dir){
+        switch (dir) {
             case 65: //LEFT
-                //this.direction = direction;
-                this.position.setPos(position.getCol()-1 , position.getRow());
+
                 picLeft.translate(-SimplegfxGrid.CELLSIZE, 0);
+                picRight.translate(-SimplegfxGrid.CELLSIZE, 0);
+                picUp.translate(-SimplegfxGrid.CELLSIZE, 0);
+                picDown.translate(-SimplegfxGrid.CELLSIZE, 0);
 
                 picLeft.draw();
                 picRight.delete();
@@ -66,12 +63,11 @@ public class Mouse {
                 break;
 
             case 87: //UP
-                //this.direction = direction;
-                this.position.setPos(position.getCol() , position.getRow()-1);
-                picUp.translate(0, -SimplegfxGrid.CELLSIZE);
 
-                System.out.println(position.getCol() + " " + position.getRow());
-                System.out.println(picUp.getX() + " " + (picUp.getY() -  SimplegfxGrid.PADDING));
+                picLeft.translate(0 ,-SimplegfxGrid.CELLSIZE);
+                picRight.translate(0, -SimplegfxGrid.CELLSIZE);
+                picUp.translate(0, -SimplegfxGrid.CELLSIZE);
+                picDown.translate(0, -SimplegfxGrid.CELLSIZE);
 
                 picLeft.delete();
                 picRight.delete();
@@ -81,8 +77,10 @@ public class Mouse {
 
             case 83: //DOWN
 
-                this.position.setPos(position.getCol() , position.getRow()+1);
-                picDown.translate(0, +SimplegfxGrid.CELLSIZE);
+                picLeft.translate(0, +SimplegfxGrid.CELLSIZE);
+                picRight.translate(0, + SimplegfxGrid.CELLSIZE);
+                picUp.translate(0, + SimplegfxGrid.CELLSIZE);
+                picDown.translate(0, + SimplegfxGrid.CELLSIZE);
 
                 picLeft.delete();
                 picRight.delete();
@@ -91,9 +89,11 @@ public class Mouse {
                 break;
 
             case 68: //RIGHT
-                //this.direction = direction;
-                this.position.setPos(position.getCol()+1 , position.getRow());
-                picRight.translate(+SimplegfxGrid.CELLSIZE, 0);
+
+                picLeft.translate(SimplegfxGrid.CELLSIZE, 0);
+                picRight.translate(SimplegfxGrid.CELLSIZE, 0);
+                picUp.translate(SimplegfxGrid.CELLSIZE, 0);
+                picDown.translate(SimplegfxGrid.CELLSIZE, 0);
 
                 picLeft.delete();
                 picRight.draw();
@@ -102,16 +102,12 @@ public class Mouse {
                 break;
 
             default:
-                System.out.println("shit rrato");
-
+                System.out.println("shit rato");
 
 
         }
 
     }
-
-
-
 
 
     private class MouseKeyboard implements KeyboardHandler {
@@ -147,12 +143,11 @@ public class Mouse {
         //MOUSE
 
 
-
         @Override
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
-            if (keyboardEvent.getKey() == KeyboardEvent.KEY_W){
-               // direction=GridDirection.UP;
+            if (keyboardEvent.getKey() == KeyboardEvent.KEY_W) {
+                // direction=GridDirection.UP;
 
                 System.out.println("W");
                 move(87);
@@ -162,7 +157,7 @@ public class Mouse {
 
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
-               // direction = GridDirection.DOWN;
+                // direction = GridDirection.DOWN;
                 System.out.println("S");
                 move(83);
 
@@ -171,24 +166,21 @@ public class Mouse {
 
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_A) {
-               // direction = GridDirection.LEFT;
+                // direction = GridDirection.LEFT;
                 System.out.println("A");
                 move(65);
-
 
 
             }
 
 
-
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_D) {
-              //  direction = GridDirection.RIGHT;
+                //  direction = GridDirection.RIGHT;
                 System.out.println("D");
                 move(68);
 
 
             }
-
 
 
         }
