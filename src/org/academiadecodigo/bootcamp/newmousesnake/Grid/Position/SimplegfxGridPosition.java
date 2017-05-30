@@ -20,15 +20,15 @@ public class SimplegfxGridPosition implements GridPosition {
         row = (int) (Math.random() * grid.getRows());
         this.grid = grid;
         position = new Rectangle(col * grid.getCellsize(),row * grid.getCellsize(),grid.getCellsize(),grid.getCellsize());
-        show();
+        //show();
     }
 
     public SimplegfxGridPosition(int col, int row, SimplegfxGrid grid) {
         this.col = col;
         this.row = row;
         this.grid = grid;
-        position = new Rectangle(col * grid.getCellsize(),row * grid.getCellsize(),grid.getCellsize(), grid.getCellsize());
-        show();
+        //position = new Rectangle(col * grid.getCellsize(),row * grid.getCellsize(),grid.getCellsize(), grid.getCellsize());
+        //show();
     }
 
     @Override
@@ -62,10 +62,7 @@ public class SimplegfxGridPosition implements GridPosition {
         this.row = row;
     }
 
-    @Override
-    public void moveInDirection(GridDirection gridDirection, int distance) {
-        
-    }
+
 
     @Override
     public int getCellsize() {
