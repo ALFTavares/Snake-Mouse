@@ -15,13 +15,9 @@ public interface GridPosition { // a position on the grid that is capable of mov
 
     void hide(); // hides the position on the grid
 
-    void moveInDirection(int distance);
+
 
     boolean equals(GridPosition gridPosition); // checks if THIS position is equal to the position given
 
     int getCellsize();
-
-    void setCol(int col);
-
-    void setRow(int row);
 }

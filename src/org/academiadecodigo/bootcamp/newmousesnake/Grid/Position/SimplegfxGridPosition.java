@@ -3,7 +3,6 @@ package org.academiadecodigo.bootcamp.newmousesnake.Grid.Position;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Grid;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
 /**
@@ -15,13 +14,11 @@ public class SimplegfxGridPosition implements GridPosition {
     private int row;
     private SimplegfxGrid grid;
     private Rectangle position;
-    private Picture picture;
 
     public SimplegfxGridPosition(SimplegfxGrid grid) {
         col = (int) Math.ceil(Math.random() * (grid.getCols() - 3));
         row = (int) Math.ceil(Math.random() * (grid.getRows() - 3));
         this.grid = grid;
-        position = new Rectangle(col * grid.getCellsize(), row * grid.getCellsize(), grid.getCellsize(), grid.getCellsize());
         position = new Rectangle(col * grid.getCellsize(),row * grid.getCellsize(),grid.getCellsize(),grid.getCellsize());
     }
 
@@ -29,20 +26,30 @@ public class SimplegfxGridPosition implements GridPosition {
         this.col = col;
         this.row = row;
         this.grid = grid;
-        position = new Rectangle(col * grid.getCellsize(), row * grid.getCellsize(), grid.getCellsize(), grid.getCellsize());
     }
 
     @Override
     public void show() {
         position.draw();
     }
+
+    @Override
+    public void hide() {
+        position.delete();
+    }
+
+    @Override
+    public boolean equals(GridPosition gridPosition) {
+        return this.col == gridPosition.getCol() && this.row == gridPosition.getRow() ? true : false;
+    }
+
     @Override
     public int getCol() {
         return col;
     }
 
     @Override
-    public int getRow() {
+    public  int getRow() {
         return row;
     }
 
@@ -52,24 +59,10 @@ public class SimplegfxGridPosition implements GridPosition {
         this.row = row;
     }
 
+
+
     @Override
     public int getCellsize() {
-
         return grid.getCellsize();
-    }
-
-
-    @Override
-    public void setCol(int col) {
-        this.col = col;
-    }
-
-    @Override
-    public void setRow(int row) {
-        this.row = row;
-    }
-
-    public void moveInDirection(int distance) { //falta a GridDirection
-
     }
 }

@@ -3,7 +3,6 @@ package org.academiadecodigo.bootcamp.newmousesnake;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Grid;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridDirection;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridPosition;
-import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.SimplegfxGridPosition;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
@@ -16,14 +15,10 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class Mouse {
 
-<<<<<<< HEAD
-    private Picture picture;
-=======
     private MouseKeyboard mouseKeyboard;
->>>>>>> mouseMoveForever
     private GridDirection direction;
-    private SimplegfxGridPosition position;
-    private SimplegfxGrid grid;
+    private GridPosition position;
+
 
     private Picture picLeft;
     private Picture picRight;
@@ -31,57 +26,24 @@ public class Mouse {
     private Picture picDown;
 
 
-<<<<<<< HEAD
-    public Mouse(SimplegfxGridPosition position, SimplegfxGrid grid) {
-        direction = GridDirection.LEFT;
-        this.position = position;
-        this.grid = grid;
-        picture = new Picture(position.getCol() * grid.getCellsize(), position.getRow() * grid.getCellsize(), "img/mouseLeft.png");
-        picture.draw();
-    }
-=======
     public Mouse(GridPosition gridPosition) {
         this.position = gridPosition;
         this.direction = GridDirection.LEFT;
         mouseKeyboard = new MouseKeyboard(this);
 
->>>>>>> mouseMoveForever
 
-    public GridPosition getPosition() {
-        return position;
+        picLeft = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
+                "img/mouseLeft.png");
+        picRight = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
+                "img/mouseRight.png");
+        picUp = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
+                "img/mouseUp.png");
+        picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
+                "img/mouseDown.png");
+
+        picLeft.draw();
     }
 
-    public void setPosition(int col, int row) {
-       position.setCol(col);
-       position.setRow(row);
-    }
-
-<<<<<<< HEAD
-    public int getCol() {
-        return position.getCol();
-    }
-
-    public int getRow() {
-        return position.getRow();
-    }
-
-    public void moveInDirection(GridDirection direction, int distance) {
-
-        switch (direction) {
-
-            case UP:
-                moveUp(distance);
-                break;
-            case DOWN:
-                moveDown(distance);
-                break;
-            case LEFT:
-                moveLeft(distance);
-                break;
-            case RIGHT:
-                moveRight(distance);
-                break;
-=======
     public GridDirection getDirection(){
         return this.direction;
     }
@@ -92,10 +54,21 @@ public class Mouse {
         switch (dir) {
             case LEFT: //LEFT
 
+                if(position.getCol() < 1){
+                    this.position.setPos(23, position.getRow());
+
+                    picLeft.translate(SimplegfxGrid.CELLSIZE * 23, 0);
+                    picRight.translate(SimplegfxGrid.CELLSIZE * 23, 0);
+                    picUp.translate(SimplegfxGrid.CELLSIZE * 23, 0);
+                    picDown.translate(SimplegfxGrid.CELLSIZE * 23, 0);
+
+                }
+
                 picLeft.translate(-SimplegfxGrid.CELLSIZE, 0);
                 picRight.translate(-SimplegfxGrid.CELLSIZE, 0);
                 picUp.translate(-SimplegfxGrid.CELLSIZE, 0);
                 picDown.translate(-SimplegfxGrid.CELLSIZE, 0);
+
                 position.setPos(position.getCol()- 1, position.getRow());
 
                 picLeft.draw();
@@ -107,10 +80,21 @@ public class Mouse {
 
             case UP: //UP
 
+                if(position.getRow() < 1){
+                    this.position.setPos(position.getRow(), 23);
+
+                    picLeft.translate(0, SimplegfxGrid.CELLSIZE * 23);
+                    picRight.translate(0, SimplegfxGrid.CELLSIZE * 23);
+                    picUp.translate(0, SimplegfxGrid.CELLSIZE * 23);
+                    picDown.translate(0, SimplegfxGrid.CELLSIZE * 23);
+
+                }
+
                 picLeft.translate(0, -SimplegfxGrid.CELLSIZE);
                 picRight.translate(0, -SimplegfxGrid.CELLSIZE);
                 picUp.translate(0, -SimplegfxGrid.CELLSIZE);
                 picDown.translate(0, -SimplegfxGrid.CELLSIZE);
+
                 position.setPos(position.getCol(), position.getRow() - 1);
 
                 picLeft.delete();
@@ -123,10 +107,21 @@ public class Mouse {
 
             case DOWN: //DOWN
 
+                if(position.getRow() > 22){
+                    this.position.setPos(position.getCol(), 0);
+
+                    picLeft.translate(0, -SimplegfxGrid.CELLSIZE * 23);
+                    picRight.translate(0, -SimplegfxGrid.CELLSIZE * 23);
+                    picUp.translate(0, -SimplegfxGrid.CELLSIZE * 23);
+                    picDown.translate(0, -SimplegfxGrid.CELLSIZE * 23);
+
+                }
+
                 picLeft.translate(0, +SimplegfxGrid.CELLSIZE);
                 picRight.translate(0, +SimplegfxGrid.CELLSIZE);
                 picUp.translate(0, +SimplegfxGrid.CELLSIZE);
                 picDown.translate(0, +SimplegfxGrid.CELLSIZE);
+
                 position.setPos(position.getCol(), position.getRow() + 1);
 
                 picLeft.delete();
@@ -139,10 +134,22 @@ public class Mouse {
 
             case RIGHT: //RIGHT
 
+                if(position.getCol() > 22){
+                    this.position.setPos(0, position.getRow());
+
+                    picLeft.translate(-SimplegfxGrid.CELLSIZE * 23,0 );
+                    picRight.translate(-SimplegfxGrid.CELLSIZE * 23,0 );
+                    picUp.translate(-SimplegfxGrid.CELLSIZE * 23,0 );
+                    picDown.translate(-SimplegfxGrid.CELLSIZE * 23,0 );
+
+
+                }
+
                 picLeft.translate(SimplegfxGrid.CELLSIZE, 0);
                 picRight.translate(SimplegfxGrid.CELLSIZE, 0);
                 picUp.translate(SimplegfxGrid.CELLSIZE, 0);
                 picDown.translate(SimplegfxGrid.CELLSIZE, 0);
+
                 position.setPos(position.getCol() + 1, position.getRow());
 
                 picLeft.delete();
@@ -155,32 +162,11 @@ public class Mouse {
 
             default:
                 System.out.println("shit rato");
->>>>>>> mouseMoveForever
-        }
-    }
-
-    public void moveUp(int distance) {
-        int initialCol = getCol();
-        int initialRow = getRow();
-        int maxRowsUp = Math.min(distance, position.getRow());
-
-<<<<<<< HEAD
-        if(position.getRow() == 0) {
-            setPosition(position.getCol(),grid.getRows());
-        } else {
-            setPosition(position.getCol(), position.getRow() - maxRowsUp);
         }
 
-        int dx = grid.columnToX(position.getCol()) - grid.columnToX(initialCol);
-        int dy = grid.rowToY(position.getRow()) - grid.rowToY(initialRow);
-        picture.translate(dx, dy);
     }
 
-    public void moveDown(int distance) {
-        int initialCol = getCol();
-        int initialRow = getRow();
-        int maxRowsDown = Math.min(grid.getRows() - (getRow()),distance);
-=======
+
 
 
     public class MouseKeyboard implements KeyboardHandler {
@@ -229,87 +215,40 @@ public class Mouse {
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
                 System.out.println("S");
                 direction = GridDirection.DOWN;
->>>>>>> mouseMoveForever
 
-        if(position.getRow() == 24) {
-            setPosition(position.getCol(),0);
-        } else {
-            setPosition(getCol(), getRow() + maxRowsDown);
-        }
 
-        int dx = grid.columnToX(position.getCol()) - grid.columnToX(initialCol);
-        int dy = grid.rowToY(position.getRow()) - grid.rowToY(initialRow);
-        picture.translate(dx, dy);
-    }
+            }
 
-    private void moveRight(int distance) {
 
-<<<<<<< HEAD
-        int initialCol = getCol();
-        int initialRow = getRow();
-        System.out.println(position.getCol());
-        int maxRowsRight = 1; //Math.min(grid.getCols() - (position.getCol()), distance);
-        System.out.println(position.getCol());
-=======
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_A) {
                 System.out.println("A");
                 direction = GridDirection.LEFT;
->>>>>>> mouseMoveForever
 
-        if(position.getCol() == 24) {
-            setPosition(0,position.getRow());
-        } else {
-            setPosition(position.getCol() + maxRowsRight, position.getRow());
-        }
 
-        System.out.println(position.getCol());
+            }
 
-        int dx = grid.columnToX(position.getCol()) - grid.columnToX(initialCol);
-        int dy = grid.rowToY(position.getRow()) - grid.rowToY(initialRow);
-        picture.translate(dx, dy);
 
-<<<<<<< HEAD
-        System.out.println(position.getCol());
-    }
-=======
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_D) {
                 System.out.println("D");
                 direction = GridDirection.RIGHT;
->>>>>>> mouseMoveForever
 
-    private void moveLeft(int distance) {
 
-        int initialCol = getCol();
-        int initialRow = getRow();
+            }
 
-        int maxRowsLeft = 1;//Math.min(distance, position.getCol());
 
-        if(position.getCol() == 0) {
-            setPosition(24,position.getRow());
-        } else {
-            setPosition(position.getCol() - maxRowsLeft, position.getRow());
         }
 
-<<<<<<< HEAD
-        int dx = grid.columnToX(position.getCol()) - grid.columnToX(initialCol);
-        int dy = grid.rowToY(position.getRow()) - grid.rowToY(initialRow);
-        picture.translate(dx, dy);
-=======
 
 
 
         @Override
         public void keyReleased(KeyboardEvent keyboardEvent) {
->>>>>>> mouseMoveForever
 
+        }
     }
-<<<<<<< HEAD
-}
-=======
 
     public GridPosition getPosition() {
         return this.position;
     }
 
 }
->>>>>>> mouseMoveForever

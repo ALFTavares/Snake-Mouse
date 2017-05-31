@@ -9,30 +9,16 @@ import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
  */
 public class Game {
 
-    private SimplegfxGrid grid;
+    private Grid grid;
     private Mouse mouse;
-    private int delay;
     private Food food;
 
-    public Game(int delay) {
-        grid = new SimplegfxGrid(24, 24);
-        mouse = new Mouse(grid.makeGridPosition(12, 12),grid);
-        this.delay = delay;
-    }
+    public Game() {
+//        grid = new SimplegfxGrid(24, 24);
+//        mouse = new Mouse(grid.makeGridPosition(20, 12));
+//        food = new Food(grid.makeGridPosition());
 
-    public void start() throws InterruptedException {
 
-       while (true) {
-
-            // Pause for a while
-            Thread.sleep(delay);
-
-            mouse.moveInDirection(GridDirection.DOWN,1 );
-
-        }
-    }
-
-    public void moveAll() {
 
     }
 
@@ -47,7 +33,7 @@ public class Game {
     public void start() throws InterruptedException{
         while (true) {
 
-            Thread.sleep(300);
+            Thread.sleep(100);
 
             mouse.move(mouse.getDirection());
 
