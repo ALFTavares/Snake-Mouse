@@ -45,59 +45,72 @@ public class Mouse {
     }
 
 
-    public void move(int dir) {
+    public void move(GridDirection dir) {
 
         switch (dir) {
-            case 65: //LEFT
+            case LEFT: //LEFT
+
+                this.direction = GridDirection.LEFT;
 
                 picLeft.translate(-SimplegfxGrid.CELLSIZE, 0);
                 picRight.translate(-SimplegfxGrid.CELLSIZE, 0);
                 picUp.translate(-SimplegfxGrid.CELLSIZE, 0);
                 picDown.translate(-SimplegfxGrid.CELLSIZE, 0);
+                position.setPos(position.getCol()- 1, position.getRow());
 
                 picLeft.draw();
                 picRight.delete();
                 picUp.delete();
                 picDown.delete();
+
                 break;
 
-            case 87: //UP
+            case UP: //UP
 
-                picLeft.translate(0 ,-SimplegfxGrid.CELLSIZE);
+                picLeft.translate(0, -SimplegfxGrid.CELLSIZE);
                 picRight.translate(0, -SimplegfxGrid.CELLSIZE);
                 picUp.translate(0, -SimplegfxGrid.CELLSIZE);
                 picDown.translate(0, -SimplegfxGrid.CELLSIZE);
+                position.setPos(position.getCol(), position.getRow() - 1);
 
                 picLeft.delete();
                 picRight.delete();
                 picUp.draw();
                 picDown.delete();
+
+                this.direction = dir;
                 break;
 
-            case 83: //DOWN
+            case DOWN: //DOWN
 
                 picLeft.translate(0, +SimplegfxGrid.CELLSIZE);
-                picRight.translate(0, + SimplegfxGrid.CELLSIZE);
-                picUp.translate(0, + SimplegfxGrid.CELLSIZE);
-                picDown.translate(0, + SimplegfxGrid.CELLSIZE);
+                picRight.translate(0, +SimplegfxGrid.CELLSIZE);
+                picUp.translate(0, +SimplegfxGrid.CELLSIZE);
+                picDown.translate(0, +SimplegfxGrid.CELLSIZE);
+                position.setPos(position.getCol(), position.getRow() + 1);
 
                 picLeft.delete();
                 picRight.delete();
                 picUp.delete();
                 picDown.draw();
+
+                this.direction = dir;
                 break;
 
-            case 68: //RIGHT
+            case RIGHT: //RIGHT
 
                 picLeft.translate(SimplegfxGrid.CELLSIZE, 0);
                 picRight.translate(SimplegfxGrid.CELLSIZE, 0);
                 picUp.translate(SimplegfxGrid.CELLSIZE, 0);
                 picDown.translate(SimplegfxGrid.CELLSIZE, 0);
+                position.setPos(position.getCol() + 1, position.getRow());
 
                 picLeft.delete();
                 picRight.draw();
                 picUp.delete();
                 picDown.delete();
+
+                this.direction = dir;
                 break;
 
             default:
@@ -107,7 +120,12 @@ public class Mouse {
     }
 
 
-    private class MouseKeyboard implements KeyboardHandler {
+    public GridDirection getDirection() {
+            return this.direction;
+        }
+
+
+    public class MouseKeyboard implements KeyboardHandler {
 
         Keyboard k;
 
@@ -145,15 +163,14 @@ public class Mouse {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_W) {
                 System.out.println("W");
-                move(87);
-
+                move(GridDirection.UP);
 
             }
 
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
                 System.out.println("S");
-                move(83);
+                move(GridDirection.DOWN);
 
 
             }
@@ -161,7 +178,7 @@ public class Mouse {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_A) {
                 System.out.println("A");
-                move(65);
+                move(GridDirection.LEFT);
 
 
             }
@@ -169,7 +186,7 @@ public class Mouse {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_D) {
                 System.out.println("D");
-                move(68);
+                move(GridDirection.RIGHT);
 
 
             }
@@ -177,10 +194,17 @@ public class Mouse {
 
         }
 
+
+
+
         @Override
         public void keyReleased(KeyboardEvent keyboardEvent) {
 
         }
+    }
+
+    public GridPosition getPosition() {
+        return this.position;
     }
 
 }

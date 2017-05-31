@@ -1,6 +1,7 @@
 package org.academiadecodigo.bootcamp.newmousesnake;
 
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Grid;
+import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridDirection;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
 
 /**
@@ -18,6 +19,7 @@ public class Game {
 //        food = new Food(grid.makeGridPosition());
 
 
+
     }
 
     public void init() throws InterruptedException{
@@ -31,23 +33,24 @@ public class Game {
     public void start() throws InterruptedException{
         while (true) {
 
-            Thread.sleep(100);
+            Thread.sleep(300);
 
-            //detectMouseEatingFood();
+            detectMouseEatingFood();
+
 
         }
 
     }
 
-//    public void detectMouseEatingFood() {
-//
-//        food.getPosition();
-//        System.out.println(mouse.getPosition().getCol() + " " + mouse.getPosition().getRow());
-//        System.out.println(food.getPosition().getCol() + " " + mouse.getPosition().getRow());
-//        if (mouse.getPosition().getCol() == (food.getPosition().getCol())
-//                && mouse.getPosition().getRow() == (food.getPosition().getRow())) {
-//            food.makePoop();
-//            food.foodOrPoop();
-//        }
-//    }
+    public void detectMouseEatingFood() {
+
+        food.getPosition();
+        System.out.println(mouse.getPosition().getCol() + " " + mouse.getPosition().getRow());
+        System.out.println(food.getPosition().getCol() + " " + mouse.getPosition().getRow());
+        if (mouse.getPosition().getCol() == (food.getPosition().getCol())
+                && mouse.getPosition().getRow() == (food.getPosition().getRow())) {
+            food.makePoop();
+            food.foodOrPoop();
+        }
+    }
 }
