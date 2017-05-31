@@ -16,7 +16,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Mouse {
 
     private MouseKeyboard mouseKeyboard;
-    private Picture picture;
     private GridDirection direction;
     private GridPosition position;
 
@@ -29,7 +28,8 @@ public class Mouse {
 
     public Mouse(GridPosition gridPosition) {
         this.position = gridPosition;
-        mouseKeyboard = new MouseKeyboard();
+        this.direction = GridDirection.LEFT;
+        mouseKeyboard = new MouseKeyboard(this);
 
 
         picLeft = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
@@ -44,13 +44,15 @@ public class Mouse {
         picLeft.draw();
     }
 
+    public GridDirection getDirection(){
+        return this.direction;
+    }
+
 
     public void move(GridDirection dir) {
 
         switch (dir) {
             case LEFT: //LEFT
-
-                this.direction = GridDirection.LEFT;
 
                 picLeft.translate(-SimplegfxGrid.CELLSIZE, 0);
                 picRight.translate(-SimplegfxGrid.CELLSIZE, 0);
@@ -78,7 +80,7 @@ public class Mouse {
                 picUp.draw();
                 picDown.delete();
 
-                this.direction = dir;
+
                 break;
 
             case DOWN: //DOWN
@@ -94,7 +96,7 @@ public class Mouse {
                 picUp.delete();
                 picDown.draw();
 
-                this.direction = dir;
+
                 break;
 
             case RIGHT: //RIGHT
@@ -110,7 +112,7 @@ public class Mouse {
                 picUp.delete();
                 picDown.delete();
 
-                this.direction = dir;
+
                 break;
 
             default:
@@ -120,16 +122,13 @@ public class Mouse {
     }
 
 
-    public GridDirection getDirection() {
-            return this.direction;
-        }
 
 
     public class MouseKeyboard implements KeyboardHandler {
 
         Keyboard k;
 
-        private MouseKeyboard() {
+        private MouseKeyboard(Mouse mouse) {
             k = new Keyboard(this);
 
             KeyboardEvent event1 = new KeyboardEvent();
@@ -163,14 +162,14 @@ public class Mouse {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_W) {
                 System.out.println("W");
-                move(GridDirection.UP);
+                direction = GridDirection.UP;
 
             }
 
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
                 System.out.println("S");
-                move(GridDirection.DOWN);
+                direction = GridDirection.DOWN;
 
 
             }
@@ -178,7 +177,7 @@ public class Mouse {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_A) {
                 System.out.println("A");
-                move(GridDirection.LEFT);
+                direction = GridDirection.LEFT;
 
 
             }
@@ -186,7 +185,7 @@ public class Mouse {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_D) {
                 System.out.println("D");
-                move(GridDirection.RIGHT);
+                direction = GridDirection.RIGHT;
 
 
             }

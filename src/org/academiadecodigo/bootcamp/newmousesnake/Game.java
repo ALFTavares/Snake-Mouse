@@ -35,6 +35,8 @@ public class Game {
 
             Thread.sleep(300);
 
+            mouse.move(mouse.getDirection());
+
             detectMouseEatingFood();
 
 
