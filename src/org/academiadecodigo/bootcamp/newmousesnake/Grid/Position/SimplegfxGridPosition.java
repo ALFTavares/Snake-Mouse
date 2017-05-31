@@ -18,10 +18,11 @@ public class SimplegfxGridPosition implements GridPosition {
     private Picture picture;
 
     public SimplegfxGridPosition(SimplegfxGrid grid) {
-        col = (int) (Math.random() * grid.getCols());
-        row = (int) (Math.random() * grid.getRows());
+        col = (int) Math.ceil(Math.random() * (grid.getCols() - 3));
+        row = (int) Math.ceil(Math.random() * (grid.getRows() - 3));
         this.grid = grid;
         position = new Rectangle(col * grid.getCellsize(), row * grid.getCellsize(), grid.getCellsize(), grid.getCellsize());
+        position = new Rectangle(col * grid.getCellsize(),row * grid.getCellsize(),grid.getCellsize(),grid.getCellsize());
     }
 
     public SimplegfxGridPosition(int col, int row, SimplegfxGrid grid) {
@@ -35,17 +36,6 @@ public class SimplegfxGridPosition implements GridPosition {
     public void show() {
         position.draw();
     }
-
-    @Override
-    public void hide() {
-        position.delete();
-    }
-
-    @Override
-    public boolean equals(GridPosition gridPosition) {
-        return this.col == gridPosition.getCol() && this.row == gridPosition.getRow() ? true : false;
-    }
-
     @Override
     public int getCol() {
         return col;
@@ -83,12 +73,3 @@ public class SimplegfxGridPosition implements GridPosition {
 
     }
 }
-
-
-
-
-
-
-
-
-
