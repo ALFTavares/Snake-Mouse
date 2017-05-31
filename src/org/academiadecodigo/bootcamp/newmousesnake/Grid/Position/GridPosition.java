@@ -15,8 +15,6 @@ public interface GridPosition { // a position on the grid that is capable of mov
 
     void hide(); // hides the position on the grid
 
-
-
     boolean equals(GridPosition gridPosition); // checks if THIS position is equal to the position given
 
     int getCellsize();
