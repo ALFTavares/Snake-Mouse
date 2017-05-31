@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp.newmousesnake;
 
-import org.academiadecodigo.bootcamp.newmousesnake.Grid.Grid;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridDirection;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridPosition;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
@@ -31,7 +30,6 @@ public class Mouse {
         this.direction = GridDirection.LEFT;
         mouseKeyboard = new MouseKeyboard(this);
 
-
         picLeft = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/mouseLeft.png");
         picRight = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
@@ -40,28 +38,26 @@ public class Mouse {
                 "img/mouseUp.png");
         picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/mouseDown.png");
-
         picLeft.draw();
     }
 
-    public GridDirection getDirection(){
+    public GridDirection getDirection() {
         return this.direction;
     }
-
 
     public void move(GridDirection dir) {
 
         switch (dir) {
+
             case LEFT: //LEFT
 
-                if(position.getCol() < 1){
+                if (position.getCol() < 1) {
                     this.position.setPos(23, position.getRow());
 
                     picLeft.translate(SimplegfxGrid.CELLSIZE * 23, 0);
                     picRight.translate(SimplegfxGrid.CELLSIZE * 23, 0);
                     picUp.translate(SimplegfxGrid.CELLSIZE * 23, 0);
                     picDown.translate(SimplegfxGrid.CELLSIZE * 23, 0);
-
                 }
 
                 picLeft.translate(-SimplegfxGrid.CELLSIZE, 0);
@@ -69,7 +65,7 @@ public class Mouse {
                 picUp.translate(-SimplegfxGrid.CELLSIZE, 0);
                 picDown.translate(-SimplegfxGrid.CELLSIZE, 0);
 
-                position.setPos(position.getCol()- 1, position.getRow());
+                position.setPos(position.getCol() - 1, position.getRow());
 
                 picLeft.draw();
                 picRight.delete();
@@ -80,14 +76,13 @@ public class Mouse {
 
             case UP: //UP
 
-                if(position.getRow() < 1){
+                if (position.getRow() < 1) {
                     this.position.setPos(position.getRow(), 23);
 
                     picLeft.translate(0, SimplegfxGrid.CELLSIZE * 23);
                     picRight.translate(0, SimplegfxGrid.CELLSIZE * 23);
                     picUp.translate(0, SimplegfxGrid.CELLSIZE * 23);
                     picDown.translate(0, SimplegfxGrid.CELLSIZE * 23);
-
                 }
 
                 picLeft.translate(0, -SimplegfxGrid.CELLSIZE);
@@ -107,14 +102,13 @@ public class Mouse {
 
             case DOWN: //DOWN
 
-                if(position.getRow() > 22){
+                if (position.getRow() > 22) {
                     this.position.setPos(position.getCol(), 0);
 
                     picLeft.translate(0, -SimplegfxGrid.CELLSIZE * 23);
                     picRight.translate(0, -SimplegfxGrid.CELLSIZE * 23);
                     picUp.translate(0, -SimplegfxGrid.CELLSIZE * 23);
                     picDown.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-
                 }
 
                 picLeft.translate(0, +SimplegfxGrid.CELLSIZE);
@@ -129,20 +123,17 @@ public class Mouse {
                 picUp.delete();
                 picDown.draw();
 
-
                 break;
 
             case RIGHT: //RIGHT
 
-                if(position.getCol() > 22){
+                if (position.getCol() > 22) {
                     this.position.setPos(0, position.getRow());
 
-                    picLeft.translate(-SimplegfxGrid.CELLSIZE * 23,0 );
-                    picRight.translate(-SimplegfxGrid.CELLSIZE * 23,0 );
-                    picUp.translate(-SimplegfxGrid.CELLSIZE * 23,0 );
-                    picDown.translate(-SimplegfxGrid.CELLSIZE * 23,0 );
-
-
+                    picLeft.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
+                    picRight.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
+                    picUp.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
+                    picDown.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
                 }
 
                 picLeft.translate(SimplegfxGrid.CELLSIZE, 0);
@@ -157,17 +148,12 @@ public class Mouse {
                 picUp.delete();
                 picDown.delete();
 
-
                 break;
 
             default:
                 System.out.println("shit rato");
         }
-
     }
-
-
-
 
     public class MouseKeyboard implements KeyboardHandler {
 
@@ -195,51 +181,32 @@ public class Mouse {
             event4.setKey(KeyboardEvent.KEY_S);
             event4.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
             k.addEventListener(event4);
-
-
         }
 
         //MOUSE
-
-
         @Override
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_W) {
                 System.out.println("W");
                 direction = GridDirection.UP;
-
             }
-
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
                 System.out.println("S");
                 direction = GridDirection.DOWN;
-
-
             }
-
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_A) {
                 System.out.println("A");
                 direction = GridDirection.LEFT;
-
-
             }
-
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_D) {
                 System.out.println("D");
                 direction = GridDirection.RIGHT;
-
-
             }
-
-
         }
-
-
-
 
         @Override
         public void keyReleased(KeyboardEvent keyboardEvent) {
@@ -250,5 +217,4 @@ public class Mouse {
     public GridPosition getPosition() {
         return this.position;
     }
-
 }

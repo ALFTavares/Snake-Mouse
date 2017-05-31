@@ -14,15 +14,10 @@ public class Game {
     private Food food;
 
     public Game() {
-//        grid = new SimplegfxGrid(24, 24);
-//        mouse = new Mouse(grid.makeGridPosition(20, 12));
-//        food = new Food(grid.makeGridPosition());
-
-
 
     }
 
-    public void init() throws InterruptedException{
+    public void init() throws InterruptedException {
         grid = new SimplegfxGrid(24, 24);
         mouse = new Mouse(grid.makeGridPosition(20, 12));
         food = new Food(grid.makeGridPosition());
@@ -30,7 +25,7 @@ public class Game {
         start();
     }
 
-    public void start() throws InterruptedException{
+    public void start() throws InterruptedException {
         while (true) {
 
             Thread.sleep(100);
@@ -39,9 +34,7 @@ public class Game {
 
             detectMouseEatingFood();
 
-
         }
-
     }
 
     public void detectMouseEatingFood() {

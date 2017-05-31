@@ -7,10 +7,10 @@ import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridPosition;
  */
 public interface Grid {
 
-    public void init();
+    void init();
 
-    public GridPosition makeGridPosition();
+    GridPosition makeGridPosition();
 
-    public GridPosition makeGridPosition(int col, int row);
+    GridPosition makeGridPosition(int col, int row);
 
 }

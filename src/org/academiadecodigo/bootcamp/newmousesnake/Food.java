@@ -40,6 +40,4 @@ public class Food {
     public GridPosition getPosition() {
         return this.position;
     }
-
-
 }
