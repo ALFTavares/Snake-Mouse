@@ -54,11 +54,21 @@ public class Mouse {
 
     public void moveInDirection(GridDirection direction, int distance) {
 
-        if(direction == GridDirection.UP) {
-            System.out.println("a");
-            moveUp(distance);
+        switch (direction) {
+
+            case UP:
+                moveUp(distance);
+                break;
+            case DOWN:
+                moveDown(distance);
+                break;
+            case LEFT:
+                moveLeft(distance);
+                break;
+            case RIGHT:
+                moveRight(distance);
+                break;
         }
-        System.out.println("n");
     }
 
     public void moveUp(int distance) {
@@ -75,5 +85,63 @@ public class Mouse {
         int dx = grid.columnToX(position.getCol()) - grid.columnToX(initialCol);
         int dy = grid.rowToY(position.getRow()) - grid.rowToY(initialRow);
         picture.translate(dx, dy);
+    }
+
+    public void moveDown(int distance) {
+        int initialCol = getCol();
+        int initialRow = getRow();
+        int maxRowsDown = Math.min(grid.getRows() - (getRow()),distance);
+
+        if(position.getRow() == 24) {
+            setPosition(position.getCol(),0);
+        } else {
+            setPosition(getCol(), getRow() + maxRowsDown);
+        }
+
+        int dx = grid.columnToX(position.getCol()) - grid.columnToX(initialCol);
+        int dy = grid.rowToY(position.getRow()) - grid.rowToY(initialRow);
+        picture.translate(dx, dy);
+    }
+
+    private void moveRight(int distance) {
+
+        int initialCol = getCol();
+        int initialRow = getRow();
+        System.out.println(position.getCol());
+        int maxRowsRight = 1; //Math.min(grid.getCols() - (position.getCol()), distance);
+        System.out.println(position.getCol());
+
+        if(position.getCol() == 24) {
+            setPosition(0,position.getRow());
+        } else {
+            setPosition(position.getCol() + maxRowsRight, position.getRow());
+        }
+
+        System.out.println(position.getCol());
+
+        int dx = grid.columnToX(position.getCol()) - grid.columnToX(initialCol);
+        int dy = grid.rowToY(position.getRow()) - grid.rowToY(initialRow);
+        picture.translate(dx, dy);
+
+        System.out.println(position.getCol());
+    }
+
+    private void moveLeft(int distance) {
+
+        int initialCol = getCol();
+        int initialRow = getRow();
+
+        int maxRowsLeft = 1;//Math.min(distance, position.getCol());
+
+        if(position.getCol() == 0) {
+            setPosition(24,position.getRow());
+        } else {
+            setPosition(position.getCol() - maxRowsLeft, position.getRow());
+        }
+
+        int dx = grid.columnToX(position.getCol()) - grid.columnToX(initialCol);
+        int dy = grid.rowToY(position.getRow()) - grid.rowToY(initialRow);
+        picture.translate(dx, dy);
+
     }
 }

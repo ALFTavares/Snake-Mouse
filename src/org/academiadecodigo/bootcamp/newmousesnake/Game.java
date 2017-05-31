@@ -15,18 +15,18 @@ public class Game {
 
     public Game(int delay) {
         grid = new SimplegfxGrid(24, 24);
-        mouse = new Mouse(grid.makeGridPosition(20, 24),grid);
+        mouse = new Mouse(grid.makeGridPosition(12, 12),grid);
         this.delay = delay;
     }
 
     public void start() throws InterruptedException {
 
-        while (true) {
+       while (true) {
 
             // Pause for a while
             Thread.sleep(delay);
 
-            mouse.moveInDirection(GridDirection.UP,1 );
+            mouse.moveInDirection(GridDirection.DOWN,1 );
 
         }
     }
