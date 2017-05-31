@@ -13,7 +13,7 @@ public class SimplegfxGrid implements Grid {
 
     private int cols;
     private int rows;
-    public static final int PADDING = 20; //indiferente colocando a imagem?
+    public static final int PADDING = 20;
     public static final int CELLSIZE = 24;
     private Rectangle grid;
     private Picture picture;
@@ -39,7 +39,8 @@ public class SimplegfxGrid implements Grid {
     }
 
     @Override
-    public GridPosition makeGridPosition(int col, int row) {
+    public SimplegfxGridPosition makeGridPosition(int col, int row) {
+
         return new SimplegfxGridPosition(col,row,this);
     }
 
@@ -54,6 +55,19 @@ public class SimplegfxGrid implements Grid {
 
     public int getRows() {
         return rows;
+    }
+
+    public int rowToY(int row) {
+        return PADDING + CELLSIZE * row;
+    }
+
+    /**
+     * Auxiliary method to compute the x value that corresponds to a specific column
+     * @param column index
+     * @return x pixel value
+     */
+    public int columnToX(int column) {
+        return PADDING + CELLSIZE * column;
     }
 
 }

@@ -3,6 +3,7 @@ package org.academiadecodigo.bootcamp.newmousesnake.Grid.Position;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Grid;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 
 /**
@@ -14,21 +15,20 @@ public class SimplegfxGridPosition implements GridPosition {
     private int row;
     private SimplegfxGrid grid;
     private Rectangle position;
+    private Picture picture;
 
     public SimplegfxGridPosition(SimplegfxGrid grid) {
         col = (int) (Math.random() * grid.getCols());
         row = (int) (Math.random() * grid.getRows());
         this.grid = grid;
-        position = new Rectangle(col * grid.getCellsize(),row * grid.getCellsize(),grid.getCellsize(),grid.getCellsize());
-        //show();
+        position = new Rectangle(col * grid.getCellsize(), row * grid.getCellsize(), grid.getCellsize(), grid.getCellsize());
     }
 
     public SimplegfxGridPosition(int col, int row, SimplegfxGrid grid) {
         this.col = col;
         this.row = row;
         this.grid = grid;
-        //position = new Rectangle(col * grid.getCellsize(),row * grid.getCellsize(),grid.getCellsize(), grid.getCellsize());
-        //show();
+        position = new Rectangle(col * grid.getCellsize(), row * grid.getCellsize(), grid.getCellsize(), grid.getCellsize());
     }
 
     @Override
@@ -52,7 +52,7 @@ public class SimplegfxGridPosition implements GridPosition {
     }
 
     @Override
-    public  int getRow() {
+    public int getRow() {
         return row;
     }
 
@@ -62,10 +62,33 @@ public class SimplegfxGridPosition implements GridPosition {
         this.row = row;
     }
 
+    @Override
+    public int getCellsize() {
+
+        return grid.getCellsize();
+    }
 
 
     @Override
-    public int getCellsize() {
-        return grid.getCellsize();
+    public void setCol(int col) {
+        this.col = col;
+    }
+
+    @Override
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public void moveInDirection(int distance) { //falta a GridDirection
+
     }
 }
+
+
+
+
+
+
+
+
+
