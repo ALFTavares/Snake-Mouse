@@ -132,6 +132,7 @@ public class Game {
                 && mouse.getPosition().getRow() == (food.getPosition().getRow())) {
             food.makePoop();
             food.foodOrPoop();
+            food = new Food(grid.makeGridPosition());
         }
     }
 
