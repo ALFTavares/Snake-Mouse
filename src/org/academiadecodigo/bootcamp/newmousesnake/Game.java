@@ -40,13 +40,34 @@ public class Game {
 
             snake.move(snake.getDirection());
 
-
             detectMouseEatingFood();
 
             checkSnakeEatFood();
 
+            checkSnakeKillsMouse();
+
         }
 
+    }
+
+    public void checkSnakeKillsMouse(){
+            int snakePosCol = snake.getPosition().getCol();
+            int snakePosRow = snake.getPosition().getRow();
+
+            int mousePosCol = mouse.getPosition().getCol();
+            int mousePosRow = mouse.getPosition().getRow();
+
+        if (snakePosCol == mousePosCol && snakePosRow == mousePosRow ||
+                snakePosCol == mousePosCol + 1 && snakePosRow == mousePosRow ||
+                snakePosCol == mousePosCol && snakePosRow == mousePosRow +1 ) {
+            mouse.die();
+
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void checkSnakeEatFood(){
@@ -67,6 +88,13 @@ public class Game {
                 && food.isPooped()) {
             snake.snakeDie();
             food.snakeEatPoop();
+
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
         }
         if (snake.isDead()){
             System.out.println("SNAKE IS DEAD");

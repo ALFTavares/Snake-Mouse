@@ -24,6 +24,8 @@ public class Mouse {
     private Picture picUp;
     private Picture picDown;
 
+    private boolean isDead = false;
+
 
     public Mouse(GridPosition gridPosition) {
         this.position = gridPosition;
@@ -216,5 +218,12 @@ public class Mouse {
 
     public GridPosition getPosition() {
         return this.position;
+    }
+
+
+    public void die(){
+        this.isDead = true;
+        System.out.println("MOUSE IS DEAD");
+
     }
 }
