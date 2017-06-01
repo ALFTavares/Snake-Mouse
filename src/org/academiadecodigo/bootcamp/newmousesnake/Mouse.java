@@ -77,7 +77,7 @@ public class Mouse {
             case UP: //UP
 
                 if (position.getRow() < 1) {
-                    this.position.setPos(position.getRow(), 23);
+                    this.position.setPos(position.getCol(), 23);
 
                     picLeft.translate(0, SimplegfxGrid.CELLSIZE * 23);
                     picRight.translate(0, SimplegfxGrid.CELLSIZE * 23);
