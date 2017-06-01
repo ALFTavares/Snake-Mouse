@@ -4,6 +4,7 @@ import org.academiadecodigo.bootcamp.newmousesnake.Grid.Grid;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridDirection;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridPosition;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 /**
  * Created by codecadet on 30/05/17.
@@ -14,6 +15,8 @@ public class Game {
     private Mouse mouse;
     private Snake snake;
     private Food food;
+
+    private Picture[] coins;
 
     private int mouseLifes = 3;
     private int snakeLifes = 3;
@@ -28,7 +31,8 @@ public class Game {
         snake = new Snake(grid.makeGridPosition(4, 4));
         food = new Food(grid.makeGridPosition());
 
-
+        coins = new Picture[6];
+        drawCoins();
 
         start();
     }
@@ -45,9 +49,11 @@ public class Game {
 
             detectMouseEatingFood();
 
-            checkSnakeEatFood();
+            checkSnakeEatFoodorPoop();
 
             checkSnakeKillsMouse();
+
+            eraseCoins();
 
         }
 
@@ -79,7 +85,7 @@ public class Game {
         }
     }
 
-    public void checkSnakeEatFood(){
+    public void checkSnakeEatFoodorPoop(){
 
         food.getPosition();
 
@@ -128,4 +134,32 @@ public class Game {
             food.foodOrPoop();
         }
     }
+
+    public void drawCoins(){
+
+        coins[0] = new Picture( 625,80 ,"img/coin.png");
+        coins[0].draw();
+        coins[1] = new Picture( 625,110 ,"img/coin.png");
+        coins[1].draw();
+        coins[2] = new Picture( 625,140 ,"img/coin.png");
+        coins[2].draw();
+        coins[3] = new Picture( 625,480 ,"img/coin.png");
+        coins[3].draw();
+        coins[4] = new Picture( 625,510 ,"img/coin.png");
+        coins[4].draw();
+        coins[5] = new Picture( 625,540 ,"img/coin.png");
+        coins[5].draw();
+    }
+
+    public void eraseCoins(){
+        if(mouseLifes == 2 ){ coins[2].delete();}
+        if(mouseLifes == 1 ){ coins[1].delete();}
+        if(mouseLifes == 0 ){ coins[0].delete();}
+
+        if(snakeLifes == 2 ){ coins[5].delete();}
+        if(snakeLifes == 1 ){ coins[5].delete();}
+        if(snakeLifes == 0 ){ coins[3].delete();}
+
+    }
+
 }
