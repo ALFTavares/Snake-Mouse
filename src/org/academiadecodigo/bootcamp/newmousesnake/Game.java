@@ -2,6 +2,7 @@ package org.academiadecodigo.bootcamp.newmousesnake;
 
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Grid;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridDirection;
+import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridPosition;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
 
 /**
@@ -24,10 +25,13 @@ public class Game {
         snake = new Snake(grid.makeGridPosition(4, 4));
         food = new Food(grid.makeGridPosition());
 
+
+
         start();
     }
 
     public void start() throws InterruptedException {
+
         while (true) {
 
             Thread.sleep(100);
@@ -36,10 +40,26 @@ public class Game {
 
             snake.move(snake.getDirection());
 
+
             detectMouseEatingFood();
 
+            checkSnakeEatFood();
+
+        }
+
+    }
+
+    public void checkSnakeEatFood(){
+
+        food.getPosition();
+
+        if (snake.getPosition().getCol() == (food.getPosition().getCol())
+                && snake.getPosition().getRow() == (food.getPosition().getRow())) {
+            food.getEaten();
+            food = new Food(grid.makeGridPosition());
         }
     }
+
 
     public void detectMouseEatingFood() {
 

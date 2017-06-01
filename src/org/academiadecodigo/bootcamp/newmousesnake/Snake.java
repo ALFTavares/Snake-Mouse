@@ -18,16 +18,27 @@ public class Snake {
     private GridDirection direction;
     private GridPosition position;
 
+    private GridPosition lastPosition;
 
     private Picture picLeft;
     private Picture picRight;
     private Picture picUp;
     private Picture picDown;
 
+    public SnakeBodySegment[] snakeBodySegments;
+
+    private int snakeBodyCount;
+
 
     public Snake(GridPosition gridPosition) {
         this.position = gridPosition;
         this.direction = GridDirection.RIGHT;
+
+       /* snakeBodySegments = new SnakeBodySegment[600];
+        snakeBodyCount = -1;
+        lastPosition = position;
+        addBodySegment();*/
+
         mouseKeyboard = new MouseKeyboard(this);
 
         picLeft = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
@@ -39,6 +50,12 @@ public class Snake {
         picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/snakeHeadDown.png");
         picLeft.draw();
+
+
+
+
+
+
     }
 
     public GridDirection getDirection() {
@@ -49,7 +66,27 @@ public class Snake {
         return this.position;
     }
 
+    //SNAKE BODY CONTROL
+
+    public GridPosition getlastPosition() {
+        return this.lastPosition;
+    }
+
+    public void addBodySegment(){
+        snakeBodyCount++;
+        snakeBodySegments[snakeBodyCount] = new SnakeBodySegment(lastPosition);
+    }
+
+    public int getSnakeBodyCount(){
+        return  snakeBodyCount;
+    }
+    //END OF SNAKE BODY CONTROL
+
+
+
     public void move(GridDirection dir) {
+
+        lastPosition = position;
 
         switch (dir) {
 

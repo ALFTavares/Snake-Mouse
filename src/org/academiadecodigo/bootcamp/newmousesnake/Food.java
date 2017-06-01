@@ -37,6 +37,12 @@ public class Food {
         }
     }
 
+    public void getEaten(){
+        this.position.setPos(50,50);
+        picFood.delete();
+
+    }
+
     public GridPosition getPosition() {
         return this.position;
     }
