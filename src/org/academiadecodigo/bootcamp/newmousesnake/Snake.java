@@ -52,7 +52,7 @@ public class Snake {
                 "img/snakeHeadUp.png");
         picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/snakeHeadDown.png");
-        picLeft.draw();
+        picRight.draw();
 
 
     }
