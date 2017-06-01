@@ -19,6 +19,7 @@ public class Snake {
     private GridPosition position;
 
     private GridPosition lastPosition;
+    private GridDirection lastDirection;
 
     private Picture picLeft;
     private Picture picRight;
@@ -33,6 +34,7 @@ public class Snake {
     public Snake(GridPosition gridPosition) {
         this.position = gridPosition;
         this.direction = GridDirection.RIGHT;
+        this.lastDirection = direction;
 
        /* snakeBodySegments = new SnakeBodySegment[600];
         snakeBodyCount = -1;
@@ -52,10 +54,6 @@ public class Snake {
         picLeft.draw();
 
 
-
-
-
-
     }
 
     public GridDirection getDirection() {
@@ -72,25 +70,26 @@ public class Snake {
         return this.lastPosition;
     }
 
-    public void addBodySegment(){
+    public void addBodySegment() {
         snakeBodyCount++;
         snakeBodySegments[snakeBodyCount] = new SnakeBodySegment(lastPosition);
     }
 
-    public int getSnakeBodyCount(){
-        return  snakeBodyCount;
+    public int getSnakeBodyCount() {
+        return snakeBodyCount;
     }
     //END OF SNAKE BODY CONTROL
-
 
 
     public void move(GridDirection dir) {
 
         lastPosition = position;
+        lastDirection = this.direction;
 
         switch (dir) {
 
             case LEFT: //LEFT
+
 
                 if (position.getCol() < 1) {
                     this.position.setPos(23, position.getRow());
@@ -116,6 +115,11 @@ public class Snake {
                 break;
 
             case UP: //UP
+
+
+                if (lastDirection == GridDirection.DOWN) {
+                    break;
+                }
 
                 if (position.getRow() < 1) {
                     this.position.setPos(position.getCol(), 23);
@@ -143,6 +147,11 @@ public class Snake {
 
             case DOWN: //DOWN
 
+
+                if (lastDirection == GridDirection.UP) {
+                    break;
+                }
+
                 if (position.getRow() > 22) {
                     this.position.setPos(position.getCol(), 0);
 
@@ -167,6 +176,11 @@ public class Snake {
                 break;
 
             case RIGHT: //RIGHT
+
+
+                if (lastDirection == GridDirection.LEFT) {
+                    break;
+                }
 
                 if (position.getCol() > 22) {
                     this.position.setPos(0, position.getRow());
@@ -229,23 +243,31 @@ public class Snake {
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_UP) {
-                System.out.println("UP");
-                direction = GridDirection.UP;
+                // System.out.println("key UP");
+                if(lastDirection != GridDirection.DOWN) {
+                    direction = GridDirection.UP;
+                }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN) {
-                System.out.println("DOWN");
-                direction = GridDirection.DOWN;
+                // System.out.println("key DOWN");
+                if(lastDirection != GridDirection.UP) {
+                    direction = GridDirection.DOWN;
+                }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT) {
-                System.out.println("LEFT");
-                direction = GridDirection.LEFT;
+                // System.out.println("key LEFT");
+                if(lastDirection != GridDirection.RIGHT) {
+                    direction = GridDirection.LEFT;
+                }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_RIGHT) {
-                System.out.println("RIGHT");
-                direction = GridDirection.RIGHT;
+                // System.out.println("key RIGHT");
+                if(lastDirection != GridDirection.LEFT) {
+                    direction = GridDirection.RIGHT;
+                }
             }
         }
 

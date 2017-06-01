@@ -64,8 +64,8 @@ public class Game {
     public void detectMouseEatingFood() {
 
         food.getPosition();
-        System.out.println(mouse.getPosition().getCol() + " " + mouse.getPosition().getRow());
-        System.out.println(food.getPosition().getCol() + " " + mouse.getPosition().getRow());
+       // System.out.println(mouse.getPosition().getCol() + " " + mouse.getPosition().getRow());
+       // System.out.println(food.getPosition().getCol() + " " + mouse.getPosition().getRow());
         if (mouse.getPosition().getCol() == (food.getPosition().getCol())
                 && mouse.getPosition().getRow() == (food.getPosition().getRow())) {
             food.makePoop();
