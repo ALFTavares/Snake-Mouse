@@ -157,7 +157,7 @@ public class Game {
         if(mouseLifes == 0 ){ coins[0].delete();}
 
         if(snakeLifes == 2 ){ coins[5].delete();}
-        if(snakeLifes == 1 ){ coins[5].delete();}
+        if(snakeLifes == 1 ){ coins[4].delete();}
         if(snakeLifes == 0 ){ coins[3].delete();}
 
     }
