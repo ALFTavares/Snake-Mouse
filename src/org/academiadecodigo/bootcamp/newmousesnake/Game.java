@@ -18,6 +18,8 @@ public class Game {
 
     private Picture[] coins;
 
+    private GameOver gameover;
+
     private int mouseLifes = 3;
     private int snakeLifes = 3;
 
@@ -30,6 +32,7 @@ public class Game {
         mouse = new Mouse(grid.makeGridPosition(20, 20));
         snake = new Snake(grid.makeGridPosition(4, 4));
         food = new Food(grid.makeGridPosition());
+        gameover = new GameOver();
 
         coins = new Picture[6];
         drawCoins();
@@ -54,6 +57,8 @@ public class Game {
             checkSnakeKillsMouse();
 
             eraseCoins();
+
+            gameOver();
 
         }
 
@@ -162,5 +167,22 @@ public class Game {
         if(snakeLifes == 0 ){ coins[3].delete();}
 
     }
+
+     public void gameOver(){
+        if (snakeLifes == 0 || mouseLifes == 0){
+
+            mouse.setPosition(grid.makeGridPosition(2000,2000));
+            mouse.die();
+            snake.setPosition(grid.makeGridPosition(2000,2000));
+            snake.die();
+            gameover.init();
+            try {
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.exit(0);
+        }
+     }
 
 }
