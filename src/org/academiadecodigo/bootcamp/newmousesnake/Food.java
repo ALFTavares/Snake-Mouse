@@ -30,11 +30,26 @@ public class Food {
         this.isPoop = true;
     }
 
+    public boolean isPooped(){
+        return this.isPoop;
+    }
+
     public void foodOrPoop() {
         if (isPoop) {
             picPoop.draw();
             picFood.delete();
         }
+    }
+
+    public void snakeEat(){
+        this.position.setPos(50,50);
+        picFood.delete();
+
+    }
+
+    public void snakeEatPoop(){
+        this.position.setPos(50,50);
+        picPoop.delete();
     }
 
     public GridPosition getPosition() {

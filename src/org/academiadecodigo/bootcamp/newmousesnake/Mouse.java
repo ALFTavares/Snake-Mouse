@@ -24,6 +24,8 @@ public class Mouse {
     private Picture picUp;
     private Picture picDown;
 
+    private boolean isDead = false;
+
 
     public Mouse(GridPosition gridPosition) {
         this.position = gridPosition;
@@ -41,8 +43,29 @@ public class Mouse {
         picLeft.draw();
     }
 
+
+
     public GridDirection getDirection() {
         return this.direction;
+    }
+
+    public GridPosition getPosition() {
+        return this.position;
+    }
+
+
+    public void die(){
+        this.isDead = true;
+        System.out.println("MOUSE IS DEAD");
+        picLeft.delete();
+        picDown.delete();
+        picRight.delete();
+        picUp.delete();
+
+    }
+
+    public void setPosition(GridPosition position){
+       this.position =  position;
     }
 
     public void move(GridDirection dir) {
@@ -214,7 +237,5 @@ public class Mouse {
         }
     }
 
-    public GridPosition getPosition() {
-        return this.position;
-    }
+
 }
