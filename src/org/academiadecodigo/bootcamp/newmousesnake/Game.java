@@ -85,6 +85,9 @@ public class Game {
             mouse.die();
             mouse = new Mouse(grid.makeGridPosition(20, 20));
             mouseLifes--;
+
+            snake.die();
+            snake = new Snake(grid.makeGridPosition(4, 4));
             System.out.println("Mouse lifes left " + mouseLifes);
 
         }
@@ -119,6 +122,10 @@ public class Game {
             snake.die();
             snake = new Snake(grid.makeGridPosition(4, 4));
             snakeLifes--;
+
+            mouse.die();
+            mouse = new Mouse(grid.makeGridPosition(20, 20));
+
             food = new Food(grid.makeGridPosition());
             System.out.println("Snake lifes left " + snakeLifes);
 
