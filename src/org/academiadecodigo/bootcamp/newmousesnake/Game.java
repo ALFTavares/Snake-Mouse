@@ -54,10 +54,21 @@ public class Game {
         food.getPosition();
 
         if (snake.getPosition().getCol() == (food.getPosition().getCol())
-                && snake.getPosition().getRow() == (food.getPosition().getRow())) {
-            food.getEaten();
+                && snake.getPosition().getRow() == (food.getPosition().getRow())
+                && !food.isPooped()) {
+            food.snakeEat();
             food = new Food(grid.makeGridPosition());
         }
+        if (snake.getPosition().getCol() == (food.getPosition().getCol())
+                && snake.getPosition().getRow() == (food.getPosition().getRow())
+                && food.isPooped()) {
+            snake.snakeDie();
+        }
+        if (snake.isDead()){
+            System.out.println("SNAKE IS DEAD");
+
+        }
+
     }
 
 

@@ -30,6 +30,10 @@ public class Food {
         this.isPoop = true;
     }
 
+    public boolean isPooped(){
+        return this.isPoop;
+    }
+
     public void foodOrPoop() {
         if (isPoop) {
             picPoop.draw();
@@ -37,7 +41,7 @@ public class Food {
         }
     }
 
-    public void getEaten(){
+    public void snakeEat(){
         this.position.setPos(50,50);
         picFood.delete();
 

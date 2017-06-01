@@ -9,6 +9,8 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.lang.reflect.Field;
+
 /**
  * Created by codecadet on 30/05/17.
  */
@@ -25,6 +27,8 @@ public class Snake {
     private Picture picRight;
     private Picture picUp;
     private Picture picDown;
+
+    private boolean isDead = false;
 
     public SnakeBodySegment[] snakeBodySegments;
 
@@ -80,6 +84,15 @@ public class Snake {
     }
     //END OF SNAKE BODY CONTROL
 
+
+    public void snakeDie(){
+        this.isDead = true;
+
+    }
+
+    public boolean isDead() {
+        return isDead;
+    }
 
     public void move(GridDirection dir) {
 
