@@ -47,6 +47,11 @@ public class Food {
 
     }
 
+    public void snakeEatPoop(){
+        this.position.setPos(50,50);
+        picPoop.delete();
+    }
+
     public GridPosition getPosition() {
         return this.position;
     }
