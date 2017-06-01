@@ -12,7 +12,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 /**
  * Created by codecadet on 30/05/17.
  */
-public class Mouse {
+public class Snake {
 
     private MouseKeyboard mouseKeyboard;
     private GridDirection direction;
@@ -25,24 +25,28 @@ public class Mouse {
     private Picture picDown;
 
 
-    public Mouse(GridPosition gridPosition) {
+    public Snake(GridPosition gridPosition) {
         this.position = gridPosition;
-        this.direction = GridDirection.LEFT;
+        this.direction = GridDirection.RIGHT;
         mouseKeyboard = new MouseKeyboard(this);
 
         picLeft = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
-                "img/mouseLeft.png");
+                "img/snakeHeadLeft.png");
         picRight = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
-                "img/mouseRight.png");
+                "img/snakeHeadRight.png");
         picUp = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
-                "img/mouseUp.png");
+                "img/snakeHeadUp.png");
         picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
-                "img/mouseDown.png");
+                "img/snakeHeadDown.png");
         picLeft.draw();
     }
 
     public GridDirection getDirection() {
         return this.direction;
+    }
+
+    public GridPosition getPosition() {
+        return this.position;
     }
 
     public void move(GridDirection dir) {
@@ -151,7 +155,7 @@ public class Mouse {
                 break;
 
             default:
-                System.out.println("shit rato");
+                System.out.println("shit snake");
         }
     }
 
@@ -159,51 +163,51 @@ public class Mouse {
 
         Keyboard k;
 
-        private MouseKeyboard(Mouse mouse) {
+        private MouseKeyboard(Snake snake) {
             k = new Keyboard(this);
 
-            KeyboardEvent event1 = new KeyboardEvent();
-            event1.setKey(KeyboardEvent.KEY_A);
-            event1.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            k.addEventListener(event1);
+            KeyboardEvent event5 = new KeyboardEvent();
+            event5.setKey(KeyboardEvent.KEY_LEFT);
+            event5.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            k.addEventListener(event5);
 
-            KeyboardEvent event2 = new KeyboardEvent();
-            event2.setKey(KeyboardEvent.KEY_D);
-            event2.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            k.addEventListener(event2);
+            KeyboardEvent event6 = new KeyboardEvent();
+            event6.setKey(KeyboardEvent.KEY_RIGHT);
+            event6.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            k.addEventListener(event6);
 
-            KeyboardEvent event3 = new KeyboardEvent();
-            event3.setKey(KeyboardEvent.KEY_W);
-            event3.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            k.addEventListener(event3);
+            KeyboardEvent event7 = new KeyboardEvent();
+            event7.setKey(KeyboardEvent.KEY_UP);
+            event7.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            k.addEventListener(event7);
 
-            KeyboardEvent event4 = new KeyboardEvent();
-            event4.setKey(KeyboardEvent.KEY_S);
-            event4.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-            k.addEventListener(event4);
+            KeyboardEvent event8 = new KeyboardEvent();
+            event8.setKey(KeyboardEvent.KEY_DOWN);
+            event8.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            k.addEventListener(event8);
         }
 
         //MOUSE
         @Override
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
-            if (keyboardEvent.getKey() == KeyboardEvent.KEY_W) {
-                System.out.println("W");
+            if (keyboardEvent.getKey() == KeyboardEvent.KEY_UP) {
+                System.out.println("UP");
                 direction = GridDirection.UP;
             }
 
-            if (keyboardEvent.getKey() == KeyboardEvent.KEY_S) {
-                System.out.println("S");
+            if (keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN) {
+                System.out.println("DOWN");
                 direction = GridDirection.DOWN;
             }
 
-            if (keyboardEvent.getKey() == KeyboardEvent.KEY_A) {
-                System.out.println("A");
+            if (keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT) {
+                System.out.println("LEFT");
                 direction = GridDirection.LEFT;
             }
 
-            if (keyboardEvent.getKey() == KeyboardEvent.KEY_D) {
-                System.out.println("D");
+            if (keyboardEvent.getKey() == KeyboardEvent.KEY_RIGHT) {
+                System.out.println("RIGHT");
                 direction = GridDirection.RIGHT;
             }
         }
@@ -214,7 +218,5 @@ public class Mouse {
         }
     }
 
-    public GridPosition getPosition() {
-        return this.position;
-    }
+
 }

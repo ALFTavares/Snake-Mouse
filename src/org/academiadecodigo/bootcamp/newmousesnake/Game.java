@@ -11,6 +11,7 @@ public class Game {
 
     private Grid grid;
     private Mouse mouse;
+    private Snake snake;
     private Food food;
 
     public Game() {
@@ -19,7 +20,8 @@ public class Game {
 
     public void init() throws InterruptedException {
         grid = new SimplegfxGrid(24, 24);
-        mouse = new Mouse(grid.makeGridPosition(20, 12));
+        mouse = new Mouse(grid.makeGridPosition(20, 20));
+        snake = new Snake(grid.makeGridPosition(4, 4));
         food = new Food(grid.makeGridPosition());
 
         start();
@@ -31,6 +33,8 @@ public class Game {
             Thread.sleep(100);
 
             mouse.move(mouse.getDirection());
+
+            snake.move(snake.getDirection());
 
             detectMouseEatingFood();
 
