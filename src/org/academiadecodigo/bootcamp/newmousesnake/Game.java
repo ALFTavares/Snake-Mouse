@@ -15,6 +15,9 @@ public class Game {
     private Snake snake;
     private Food food;
 
+    private int mouseLifes = 3;
+    private int snakeLifes = 3;
+
     public Game() {
 
     }
@@ -60,13 +63,18 @@ public class Game {
         if (snakePosCol == mousePosCol && snakePosRow == mousePosRow ||
                 snakePosCol == mousePosCol + 1 && snakePosRow == mousePosRow ||
                 snakePosCol == mousePosCol && snakePosRow == mousePosRow +1 ) {
-            mouse.die();
+
 
             try {
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            mouse.setPosition(grid.makeGridPosition(2000,2000));
+            mouse.die();
+            mouse = new Mouse(grid.makeGridPosition(20, 20));
+            mouseLifes--;
+
         }
     }
 
@@ -86,19 +94,22 @@ public class Game {
         if (snake.getPosition().getCol() == (food.getPosition().getCol())
                 && snake.getPosition().getRow() == (food.getPosition().getRow())
                 && food.isPooped()) {
-            snake.snakeDie();
+
             food.snakeEatPoop();
 
             try {
                 Thread.sleep(2000);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            snake.setPosition(grid.makeGridPosition(2000,2000));
+            snake.die();
+            snake = new Snake(grid.makeGridPosition(4, 4));
+            snakeLifes--;
 
         }
-        if (snake.isDead()){
-            System.out.println("SNAKE IS DEAD");
-        }
+
 
     }
 

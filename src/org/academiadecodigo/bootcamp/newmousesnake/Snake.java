@@ -68,6 +68,10 @@ public class Snake {
         return this.position;
     }
 
+    public void setPosition(GridPosition position){
+        this.position =  position;
+    }
+
     //SNAKE BODY CONTROL
 
     public GridPosition getlastPosition() {
@@ -85,8 +89,13 @@ public class Snake {
     //END OF SNAKE BODY CONTROL
 
 
-    public void snakeDie(){
+    public void die(){
         this.isDead = true;
+        System.out.println("SNAKE IS DEAD");
+        picUp.delete();
+        picRight.delete();
+        picLeft.delete();
+        picDown.delete();
 
     }
 
