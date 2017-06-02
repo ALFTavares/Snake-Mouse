@@ -92,6 +92,12 @@ public class Game {
                 snakePosCol == mousePosCol + 1 && snakePosRow == mousePosRow ||
                 snakePosCol == mousePosCol && snakePosRow == mousePosRow + 1) {
 
+            try {
+                Thread.sleep(2000);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             mouse.setPosition(grid.makeGridPosition(2000, 2000));
             mouse.die();
@@ -105,6 +111,7 @@ public class Game {
                 food1.getPicPoop().delete();
             }
                foods.clear();
+
             foods.add(new Food(grid.makeGridPosition()));
             //}
             snake = new Snake(grid.makeGridPosition(4, 4));
