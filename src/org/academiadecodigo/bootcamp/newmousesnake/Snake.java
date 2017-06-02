@@ -123,8 +123,8 @@ public class Snake {
                     break;
                 }
 
-                if (position.getRow() < 1) {
-                    this.position.setPos(position.getCol(), 23);
+                if (position.getRow() < 0) {
+                    this.position.setPos(position.getCol(), 22);
 
                     picLeft.translate(0, SimplegfxGrid.CELLSIZE * 23);
                     picRight.translate(0, SimplegfxGrid.CELLSIZE * 23);
@@ -154,13 +154,13 @@ public class Snake {
                     break;
                 }
 
-                if (position.getRow() > 22) {
+                if (position.getRow() > 21) {
                     this.position.setPos(position.getCol(), 0);
 
-                    picLeft.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picRight.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picUp.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picDown.translate(0, -SimplegfxGrid.CELLSIZE * 23);
+                    picLeft.translate(0, -SimplegfxGrid.CELLSIZE * 22);
+                    picRight.translate(0, -SimplegfxGrid.CELLSIZE * 22);
+                    picUp.translate(0, -SimplegfxGrid.CELLSIZE * 22);
+                    picDown.translate(0, -SimplegfxGrid.CELLSIZE * 22);
                 }
 
                 picLeft.translate(0, +SimplegfxGrid.CELLSIZE);
@@ -184,13 +184,13 @@ public class Snake {
                     break;
                 }
 
-                if (position.getCol() > 22) {
+                if (position.getCol() > 21) {
                     this.position.setPos(0, position.getRow());
 
-                    picLeft.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picRight.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picUp.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picDown.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
+                    picLeft.translate(-SimplegfxGrid.CELLSIZE * 22, 0);
+                    picRight.translate(-SimplegfxGrid.CELLSIZE * 22, 0);
+                    picUp.translate(-SimplegfxGrid.CELLSIZE * 22, 0);
+                    picDown.translate(-SimplegfxGrid.CELLSIZE * 22, 0);
                 }
 
                 picLeft.translate(SimplegfxGrid.CELLSIZE, 0);

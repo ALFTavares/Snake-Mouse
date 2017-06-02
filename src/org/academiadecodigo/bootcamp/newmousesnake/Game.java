@@ -92,9 +92,9 @@ public class Game {
         int mousePosCol = mouse.getPosition().getCol();
         int mousePosRow = mouse.getPosition().getRow();
 
-        if (snakePosCol == mousePosCol && snakePosRow == mousePosRow ||
-                snakePosCol == mousePosCol + 1 && snakePosRow == mousePosRow ||
-                snakePosCol == mousePosCol && snakePosRow == mousePosRow + 1) {
+        if (snakePosCol+1 == mousePosCol && snakePosRow+1 == mousePosRow ||
+                snakePosCol+1 == mousePosCol + 1 && snakePosRow+1 == mousePosRow ||
+                snakePosCol+1 == mousePosCol && snakePosRow+1 == mousePosRow + 1) {
 
             try {
                 Thread.sleep(2000);
@@ -130,7 +130,9 @@ public class Game {
             // check collision to food while its not poop
             if (snake.getPosition().getCol() == (food.getPosition().getCol())
                     && snake.getPosition().getRow() == (food.getPosition().getRow())
-                    && !food.isPooped()) {
+                    && !food.isPooped() || snake.getPosition().getCol()+1 == (food.getPosition().getCol())
+                    && snake.getPosition().getRow()+1 == (food.getPosition().getRow())
+                    && !food.isPooped() ) {
                 food.snakeEat();
                 //food = new Food(grid.makeGridPosition());
                 foods.add(new Food(grid.makeGridPosition()));
@@ -142,7 +144,9 @@ public class Game {
         for (Food food: foods) {
             if (snake.getPosition().getCol() == (food.getPosition().getCol())
                     && snake.getPosition().getRow() == (food.getPosition().getRow())
-                    && food.isPooped()) {
+                    && food.isPooped() || snake.getPosition().getCol()+1 == (food.getPosition().getCol())
+                    && snake.getPosition().getRow() +1== (food.getPosition().getRow())
+                    && food.isPooped() ) {
 
                 food.snakeEatPoop();
 
