@@ -1,6 +1,5 @@
 package org.academiadecodigo.bootcamp.newmousesnake.Grid;
 
-
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridPosition;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.SimplegfxGridPosition;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
@@ -13,7 +12,7 @@ public class SimplegfxGrid implements Grid {
 
     private int cols;
     private int rows;
-    public static final int PADDING = 20; //indiferente colocando a imagem?
+    public static final int PADDING = 20;
     public static final int CELLSIZE = 24;
     private Rectangle grid;
     private Picture picture;
@@ -42,7 +41,6 @@ public class SimplegfxGrid implements Grid {
         return new SimplegfxGridPosition(col, row, this);
     }
 
-
     public int getCellsize() {
         return CELLSIZE;
     }
@@ -54,5 +52,4 @@ public class SimplegfxGrid implements Grid {
     public int getRows() {
         return rows;
     }
-
 }

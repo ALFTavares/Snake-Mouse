@@ -32,11 +32,6 @@ public class Snake {
 
     private boolean isDead = false;
 
-    public SnakeBodySegment[] snakeBodySegments;
-
-    private int snakeBodyCount;
-
-
     public Snake(GridPosition gridPosition) {
         this.position = gridPosition;
         this.direction = GridDirection.RIGHT;
@@ -52,9 +47,7 @@ public class Snake {
                 "img/snakeHeadUp.png");
         picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/snakeHeadDown.png");
-        picLeft.draw();
-
-
+        picRight.draw();
     }
 
     public GridDirection getDirection() {
@@ -69,31 +62,16 @@ public class Snake {
         this.position =  position;
     }
 
-    //SNAKE BODY CONTROL
 
-    public GridPosition getlastPosition() {
-        return this.lastPosition;
-    }
-
-    public void addBodySegment() {
-        snakeBodyCount++;
-        snakeBodySegments[snakeBodyCount] = new SnakeBodySegment(lastPosition);
-    }
-
-    public int getSnakeBodyCount() {
-        return snakeBodyCount;
-    }
     //END OF SNAKE BODY CONTROL
 
 
     public void die(){
         this.isDead = true;
-        System.out.println("SNAKE IS DEAD");
         picUp.delete();
         picRight.delete();
         picLeft.delete();
         picDown.delete();
-
     }
 
     public boolean isDead() {
@@ -108,7 +86,6 @@ public class Snake {
         switch (dir) {
 
             case LEFT: //LEFT
-
 
                 if (position.getCol() < 1) {
                     this.position.setPos(23, position.getRow());
@@ -135,13 +112,12 @@ public class Snake {
 
             case UP: //UP
 
-
                 if (lastDirection == GridDirection.DOWN) {
                     break;
                 }
 
-                if (position.getRow() < 1) {
-                    this.position.setPos(position.getCol(), 23);
+                if (position.getRow() < 0) {
+                    this.position.setPos(position.getCol(), 22);
 
                     picLeft.translate(0, SimplegfxGrid.CELLSIZE * 23);
                     picRight.translate(0, SimplegfxGrid.CELLSIZE * 23);
@@ -160,8 +136,6 @@ public class Snake {
                 picRight.delete();
                 picUp.draw();
                 picDown.delete();
-
-
                 break;
 
             case DOWN: //DOWN
@@ -171,13 +145,13 @@ public class Snake {
                     break;
                 }
 
-                if (position.getRow() > 22) {
+                if (position.getRow() > 21) {
                     this.position.setPos(position.getCol(), 0);
 
-                    picLeft.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picRight.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picUp.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picDown.translate(0, -SimplegfxGrid.CELLSIZE * 23);
+                    picLeft.translate(0, -SimplegfxGrid.CELLSIZE * 22);
+                    picRight.translate(0, -SimplegfxGrid.CELLSIZE * 22);
+                    picUp.translate(0, -SimplegfxGrid.CELLSIZE * 22);
+                    picDown.translate(0, -SimplegfxGrid.CELLSIZE * 22);
                 }
 
                 picLeft.translate(0, +SimplegfxGrid.CELLSIZE);
@@ -195,19 +169,17 @@ public class Snake {
                 break;
 
             case RIGHT: //RIGHT
-
-
                 if (lastDirection == GridDirection.LEFT) {
                     break;
                 }
 
-                if (position.getCol() > 22) {
+                if (position.getCol() > 21) {
                     this.position.setPos(0, position.getRow());
 
-                    picLeft.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picRight.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picUp.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picDown.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
+                    picLeft.translate(-SimplegfxGrid.CELLSIZE * 22, 0);
+                    picRight.translate(-SimplegfxGrid.CELLSIZE * 22, 0);
+                    picUp.translate(-SimplegfxGrid.CELLSIZE * 22, 0);
+                    picDown.translate(-SimplegfxGrid.CELLSIZE * 22, 0);
                 }
 
                 picLeft.translate(SimplegfxGrid.CELLSIZE, 0);
@@ -221,7 +193,6 @@ public class Snake {
                 picRight.draw();
                 picUp.delete();
                 picDown.delete();
-
                 break;
 
             default:
@@ -262,28 +233,24 @@ public class Snake {
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_UP) {
-                // System.out.println("key UP");
                 if(lastDirection != GridDirection.DOWN) {
                     direction = GridDirection.UP;
                 }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN) {
-                // System.out.println("key DOWN");
                 if(lastDirection != GridDirection.UP) {
                     direction = GridDirection.DOWN;
                 }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT) {
-                // System.out.println("key LEFT");
                 if(lastDirection != GridDirection.RIGHT) {
                     direction = GridDirection.LEFT;
                 }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_RIGHT) {
-                // System.out.println("key RIGHT");
                 if(lastDirection != GridDirection.LEFT) {
                     direction = GridDirection.RIGHT;
                 }

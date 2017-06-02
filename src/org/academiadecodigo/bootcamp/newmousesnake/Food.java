@@ -26,6 +26,14 @@ public class Food {
         picFood.draw();
     }
 
+    public Picture getPicFood() {
+        return picFood;
+    }
+
+    public Picture getPicPoop() {
+        return picPoop;
+    }
+
     public void makePoop() {
         this.isPoop = true;
     }
@@ -44,7 +52,6 @@ public class Food {
     public void snakeEat(){
         this.position.setPos(50,50);
         picFood.delete();
-
     }
 
     public void snakeEatPoop(){
