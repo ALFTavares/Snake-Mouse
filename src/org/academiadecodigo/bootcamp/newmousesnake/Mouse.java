@@ -74,102 +74,78 @@ public class Mouse {
 
             case LEFT: //LEFT
 
-                if (position.getCol() < 1) {
-                    this.position.setPos(23, position.getRow());
+                if (position.getCol() >= 1) {
+                    picLeft.translate(-SimplegfxGrid.CELLSIZE, 0);
+                    picRight.translate(-SimplegfxGrid.CELLSIZE, 0);
+                    picUp.translate(-SimplegfxGrid.CELLSIZE, 0);
+                    picDown.translate(-SimplegfxGrid.CELLSIZE, 0);
 
-                    picLeft.translate(SimplegfxGrid.CELLSIZE * 23, 0);
-                    picRight.translate(SimplegfxGrid.CELLSIZE * 23, 0);
-                    picUp.translate(SimplegfxGrid.CELLSIZE * 23, 0);
-                    picDown.translate(SimplegfxGrid.CELLSIZE * 23, 0);
+                    position.setPos(position.getCol() - 1, position.getRow());
+
+                    picLeft.draw();
+                    picRight.delete();
+                    picUp.delete();
+                    picDown.delete();
+
                 }
-
-                picLeft.translate(-SimplegfxGrid.CELLSIZE, 0);
-                picRight.translate(-SimplegfxGrid.CELLSIZE, 0);
-                picUp.translate(-SimplegfxGrid.CELLSIZE, 0);
-                picDown.translate(-SimplegfxGrid.CELLSIZE, 0);
-
-                position.setPos(position.getCol() - 1, position.getRow());
-
-                picLeft.draw();
-                picRight.delete();
-                picUp.delete();
-                picDown.delete();
-
                 break;
 
             case UP: //UP
 
-                if (position.getRow() < 1) {
-                    this.position.setPos(position.getCol(), 23);
+                if (position.getRow() >= 1) {
+                    picLeft.translate(0, -SimplegfxGrid.CELLSIZE);
+                    picRight.translate(0, -SimplegfxGrid.CELLSIZE);
+                    picUp.translate(0, -SimplegfxGrid.CELLSIZE);
+                    picDown.translate(0, -SimplegfxGrid.CELLSIZE);
 
-                    picLeft.translate(0, SimplegfxGrid.CELLSIZE * 23);
-                    picRight.translate(0, SimplegfxGrid.CELLSIZE * 23);
-                    picUp.translate(0, SimplegfxGrid.CELLSIZE * 23);
-                    picDown.translate(0, SimplegfxGrid.CELLSIZE * 23);
+                    position.setPos(position.getCol(), position.getRow() - 1);
+
+                    picLeft.delete();
+                    picRight.delete();
+                    picUp.draw();
+                    picDown.delete();
                 }
-
-                picLeft.translate(0, -SimplegfxGrid.CELLSIZE);
-                picRight.translate(0, -SimplegfxGrid.CELLSIZE);
-                picUp.translate(0, -SimplegfxGrid.CELLSIZE);
-                picDown.translate(0, -SimplegfxGrid.CELLSIZE);
-
-                position.setPos(position.getCol(), position.getRow() - 1);
-
-                picLeft.delete();
-                picRight.delete();
-                picUp.draw();
-                picDown.delete();
-
-
                 break;
 
             case DOWN: //DOWN
 
-                if (position.getRow() > 22) {
-                    this.position.setPos(position.getCol(), 0);
+                if (position.getRow() <= 22) {
+                    picLeft.translate(0, +SimplegfxGrid.CELLSIZE);
+                    picRight.translate(0, +SimplegfxGrid.CELLSIZE);
+                    picUp.translate(0, +SimplegfxGrid.CELLSIZE);
+                    picDown.translate(0, +SimplegfxGrid.CELLSIZE);
 
-                    picLeft.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picRight.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picUp.translate(0, -SimplegfxGrid.CELLSIZE * 23);
-                    picDown.translate(0, -SimplegfxGrid.CELLSIZE * 23);
+                    position.setPos(position.getCol(), position.getRow() + 1);
+
+                    picLeft.delete();
+                    picRight.delete();
+                    picUp.delete();
+                    picDown.draw();
+
                 }
 
-                picLeft.translate(0, +SimplegfxGrid.CELLSIZE);
-                picRight.translate(0, +SimplegfxGrid.CELLSIZE);
-                picUp.translate(0, +SimplegfxGrid.CELLSIZE);
-                picDown.translate(0, +SimplegfxGrid.CELLSIZE);
 
-                position.setPos(position.getCol(), position.getRow() + 1);
-
-                picLeft.delete();
-                picRight.delete();
-                picUp.delete();
-                picDown.draw();
 
                 break;
 
             case RIGHT: //RIGHT
 
-                if (position.getCol() > 22) {
-                    this.position.setPos(0, position.getRow());
+                if(position.getCol() <= 22) {
 
-                    picLeft.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picRight.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picUp.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
-                    picDown.translate(-SimplegfxGrid.CELLSIZE * 23, 0);
+                    picLeft.translate(SimplegfxGrid.CELLSIZE, 0);
+                    picRight.translate(SimplegfxGrid.CELLSIZE, 0);
+                    picUp.translate(SimplegfxGrid.CELLSIZE, 0);
+                    picDown.translate(SimplegfxGrid.CELLSIZE, 0);
+
+                    position.setPos(position.getCol() + 1, position.getRow());
+
+                    picLeft.delete();
+                    picRight.draw();
+                    picUp.delete();
+                    picDown.delete();
                 }
 
-                picLeft.translate(SimplegfxGrid.CELLSIZE, 0);
-                picRight.translate(SimplegfxGrid.CELLSIZE, 0);
-                picUp.translate(SimplegfxGrid.CELLSIZE, 0);
-                picDown.translate(SimplegfxGrid.CELLSIZE, 0);
 
-                position.setPos(position.getCol() + 1, position.getRow());
-
-                picLeft.delete();
-                picRight.draw();
-                picUp.delete();
-                picDown.delete();
 
                 break;
 
