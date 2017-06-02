@@ -1,5 +1,5 @@
 # Snake-Mouse
-This is the first game we make after 4 weeks of Java in the bootcamp
+This is the first game we make after 3 weeks of Java in the bootcamp
 It is a 2 Player game
 
 This game was starting to be created on 24/5/2017
