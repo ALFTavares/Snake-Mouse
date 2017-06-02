@@ -77,8 +77,24 @@ public class Game {
 
             gameOver();
 
+            cheat();
+
         }
 
+    }
+
+    public void cheat(){
+        for (Food food: foods){
+            for (Food food1: foods){
+                if (food==food1){
+                    break;
+                }
+                if (food.getPosition().getCol() == food1.getPosition().getCol() && food.getPosition().getRow()==food1.getPosition().getRow()){
+                    food.getPicFood().delete();
+
+                }
+            }
+        }
     }
 
     public void checkSnakeKillsMouse() {
@@ -182,7 +198,8 @@ public class Game {
             // System.out.println(mouse.getPosition().getCol() + " " + mouse.getPosition().getRow());
             // System.out.println(food.getPosition().getCol() + " " + mouse.getPosition().getRow());
             if (mouse.getPosition().getCol() == (food.getPosition().getCol())
-                    && mouse.getPosition().getRow() == (food.getPosition().getRow())) {
+                    && mouse.getPosition().getRow() == (food.getPosition().getRow())&& !food.isPooped()) {
+
                 food.makePoop();
                 food.foodOrPoop();
                 //food = new Food(grid.makeGridPosition());
