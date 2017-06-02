@@ -43,8 +43,6 @@ public class SplashScreen {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public class MouseKeyboard implements KeyboardHandler {
@@ -58,8 +56,6 @@ public class SplashScreen {
             eventSpace.setKey(KeyboardEvent.KEY_SPACE);
             eventSpace.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
             k.addEventListener(eventSpace);
-
-
         }
 
         //MOUSE
@@ -79,11 +75,7 @@ public class SplashScreen {
         public void keyReleased(KeyboardEvent keyboardEvent) {
 
         }
-
-
     }
-
-
 }
 
 

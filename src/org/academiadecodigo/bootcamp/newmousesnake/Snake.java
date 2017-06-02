@@ -48,9 +48,6 @@ public class Snake {
         picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/snakeHeadDown.png");
         picRight.draw();
-       // picRight.grow(10,10);
-
-
     }
 
     public GridDirection getDirection() {
@@ -71,12 +68,10 @@ public class Snake {
 
     public void die(){
         this.isDead = true;
-        System.out.println("SNAKE IS DEAD");
         picUp.delete();
         picRight.delete();
         picLeft.delete();
         picDown.delete();
-
     }
 
     public boolean isDead() {
@@ -91,7 +86,6 @@ public class Snake {
         switch (dir) {
 
             case LEFT: //LEFT
-
 
                 if (position.getCol() < 1) {
                     this.position.setPos(23, position.getRow());
@@ -118,7 +112,6 @@ public class Snake {
 
             case UP: //UP
 
-
                 if (lastDirection == GridDirection.DOWN) {
                     break;
                 }
@@ -143,8 +136,6 @@ public class Snake {
                 picRight.delete();
                 picUp.draw();
                 picDown.delete();
-
-
                 break;
 
             case DOWN: //DOWN
@@ -178,8 +169,6 @@ public class Snake {
                 break;
 
             case RIGHT: //RIGHT
-
-
                 if (lastDirection == GridDirection.LEFT) {
                     break;
                 }
@@ -204,7 +193,6 @@ public class Snake {
                 picRight.draw();
                 picUp.delete();
                 picDown.delete();
-
                 break;
 
             default:
@@ -245,28 +233,24 @@ public class Snake {
         public void keyPressed(KeyboardEvent keyboardEvent) {
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_UP) {
-                // System.out.println("key UP");
                 if(lastDirection != GridDirection.DOWN) {
                     direction = GridDirection.UP;
                 }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN) {
-                // System.out.println("key DOWN");
                 if(lastDirection != GridDirection.UP) {
                     direction = GridDirection.DOWN;
                 }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT) {
-                // System.out.println("key LEFT");
                 if(lastDirection != GridDirection.RIGHT) {
                     direction = GridDirection.LEFT;
                 }
             }
 
             if (keyboardEvent.getKey() == KeyboardEvent.KEY_RIGHT) {
-                // System.out.println("key RIGHT");
                 if(lastDirection != GridDirection.LEFT) {
                     direction = GridDirection.RIGHT;
                 }

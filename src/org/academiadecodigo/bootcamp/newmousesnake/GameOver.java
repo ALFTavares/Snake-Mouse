@@ -10,21 +10,15 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
  */
 public class GameOver {
 
-
     private Picture picture;
 
     public GameOver() {
 
-
         picture = new Picture(0, 0, "img/gameover.png");
-
     }
-
 
     public void init() {
 
         picture.draw();
     }
-
-
 }

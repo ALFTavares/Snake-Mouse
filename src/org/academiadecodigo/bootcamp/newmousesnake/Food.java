@@ -52,7 +52,6 @@ public class Food {
     public void snakeEat(){
         this.position.setPos(50,50);
         picFood.delete();
-
     }
 
     public void snakeEatPoop(){

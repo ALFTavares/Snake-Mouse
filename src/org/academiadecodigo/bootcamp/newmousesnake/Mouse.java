@@ -18,14 +18,12 @@ public class Mouse {
     private GridDirection direction;
     private GridPosition position;
 
-
     private Picture picLeft;
     private Picture picRight;
     private Picture picUp;
     private Picture picDown;
 
     private boolean isDead = false;
-
 
     public Mouse(GridPosition gridPosition) {
         this.position = gridPosition;
@@ -53,15 +51,12 @@ public class Mouse {
         return this.position;
     }
 
-
     public void die(){
         this.isDead = true;
-        System.out.println("MOUSE IS DEAD");
         picLeft.delete();
         picDown.delete();
         picRight.delete();
         picUp.delete();
-
     }
 
     public void setPosition(GridPosition position){
@@ -86,7 +81,6 @@ public class Mouse {
                     picRight.delete();
                     picUp.delete();
                     picDown.delete();
-
                 }
                 break;
 
@@ -121,11 +115,7 @@ public class Mouse {
                     picRight.delete();
                     picUp.delete();
                     picDown.draw();
-
                 }
-
-
-
                 break;
 
             case RIGHT: //RIGHT
@@ -144,9 +134,6 @@ public class Mouse {
                     picUp.delete();
                     picDown.delete();
                 }
-
-
-
                 break;
 
             default:
@@ -212,6 +199,4 @@ public class Mouse {
 
         }
     }
-
-
 }

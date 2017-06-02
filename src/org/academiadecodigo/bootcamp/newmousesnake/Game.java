@@ -1,17 +1,10 @@
 package org.academiadecodigo.bootcamp.newmousesnake;
 
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.Grid;
-import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridDirection;
-import org.academiadecodigo.bootcamp.newmousesnake.Grid.Position.GridPosition;
 import org.academiadecodigo.bootcamp.newmousesnake.Grid.SimplegfxGrid;
-import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
-import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 /**
  * Created by codecadet on 30/05/17.
@@ -27,7 +20,6 @@ public class Game {
     private int mouseLifes = 3;
     private int snakeLifes = 3;
 
-
     public void init() throws InterruptedException {
 
         grid = new SimplegfxGrid(24, 24);
@@ -42,7 +34,6 @@ public class Game {
         drawCoins();
 
         start();
-
     }
 
     public void start() throws InterruptedException {
@@ -66,9 +57,7 @@ public class Game {
             gameOver();
 
             cheat();
-
         }
-
     }
 
     public void cheat(){
@@ -79,7 +68,6 @@ public class Game {
                 }
                 if (food.getPosition().getCol() == food1.getPosition().getCol() && food.getPosition().getRow()==food1.getPosition().getRow()){
                     food.getPicFood().delete();
-
                 }
             }
         }
@@ -118,7 +106,6 @@ public class Game {
             foods.add(new Food(grid.makeGridPosition()));
             snake = new Snake(grid.makeGridPosition(4, 4));
             System.out.println("Mouse lifes left " + mouseLifes);
-
         }
     }
 
@@ -134,7 +121,6 @@ public class Game {
                     && snake.getPosition().getRow()+1 == (food.getPosition().getRow())
                     && !food.isPooped() ) {
                 food.snakeEat();
-                //food = new Food(grid.makeGridPosition());
                 foods.add(new Food(grid.makeGridPosition()));
                 return;
             }
@@ -174,7 +160,6 @@ public class Game {
             }
         }
     }
-
 
     public void detectMouseEatingFood() {
 
@@ -229,7 +214,6 @@ public class Game {
         if (snakeLifes == 0) {
             coins[3].delete();
         }
-
     }
 
     public void gameOver() {
@@ -248,5 +232,4 @@ public class Game {
             System.exit(0);
         }
     }
-
 }
