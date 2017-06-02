@@ -47,11 +47,6 @@ public class SplashScreen {
 
     }
 
-    public void delete() {
-
-        picture.delete();
-    }
-
     public class MouseKeyboard implements KeyboardHandler {
 
         Keyboard k;

@@ -32,11 +32,6 @@ public class Snake {
 
     private boolean isDead = false;
 
-    public SnakeBodySegment[] snakeBodySegments;
-
-    private int snakeBodyCount;
-
-
     public Snake(GridPosition gridPosition) {
         this.position = gridPosition;
         this.direction = GridDirection.RIGHT;
@@ -70,20 +65,7 @@ public class Snake {
         this.position =  position;
     }
 
-    //SNAKE BODY CONTROL
 
-    public GridPosition getlastPosition() {
-        return this.lastPosition;
-    }
-
-    public void addBodySegment() {
-        snakeBodyCount++;
-        snakeBodySegments[snakeBodyCount] = new SnakeBodySegment(lastPosition);
-    }
-
-    public int getSnakeBodyCount() {
-        return snakeBodyCount;
-    }
     //END OF SNAKE BODY CONTROL
 
 

@@ -13,7 +13,7 @@ public class SimplegfxGrid implements Grid {
 
     private int cols;
     private int rows;
-    public static final int PADDING = 20; //indiferente colocando a imagem?
+    public static final int PADDING = 20;
     public static final int CELLSIZE = 24;
     private Rectangle grid;
     private Picture picture;

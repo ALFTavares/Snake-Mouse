@@ -6,14 +6,7 @@ package org.academiadecodigo.bootcamp.newmousesnake;
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-
-
         SplashScreen splashScreen = new SplashScreen();
         splashScreen.init();
-
-
-
-       // Game game = new Game();
-       // game.init();
     }
 }
