@@ -26,6 +26,14 @@ public class Food {
         picFood.draw();
     }
 
+    public Picture getPicFood() {
+        return picFood;
+    }
+
+    public Picture getPicPoop() {
+        return picPoop;
+    }
+
     public void makePoop() {
         this.isPoop = true;
     }

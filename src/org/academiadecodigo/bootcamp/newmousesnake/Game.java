@@ -11,6 +11,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by codecadet on 30/05/17.
@@ -60,7 +61,7 @@ public class Game {
 
         while (true) {
 
-            Thread.sleep(100);
+            Thread.sleep(170);
 
             mouse.move(mouse.getDirection());
 
@@ -98,6 +99,14 @@ public class Game {
             mouseLifes--;
 
             snake.die();
+            //for (Food food: foods){
+            for (Food food1: foods){
+                food1.getPicFood().delete();
+                food1.getPicPoop().delete();
+            }
+               foods.clear();
+            foods.add(new Food(grid.makeGridPosition()));
+            //}
             snake = new Snake(grid.makeGridPosition(4, 4));
             System.out.println("Mouse lifes left " + mouseLifes);
 
@@ -140,6 +149,11 @@ public class Game {
                 snakeLifes--;
 
                 mouse.die();
+                for (Food food1: foods){
+                    food1.getPicFood().delete();
+                    food1.getPicPoop().delete();
+                }
+                foods.clear();
                 mouse = new Mouse(grid.makeGridPosition(20, 20));
 
                 //food = new Food(grid.makeGridPosition());
