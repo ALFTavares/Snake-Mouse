@@ -53,6 +53,7 @@ public class Snake {
         picDown = new Picture(position.getCol() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING, position.getRow() * SimplegfxGrid.CELLSIZE + SimplegfxGrid.PADDING,
                 "img/snakeHeadDown.png");
         picRight.draw();
+       // picRight.grow(10,10);
 
 
     }

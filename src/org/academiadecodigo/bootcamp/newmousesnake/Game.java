@@ -10,6 +10,8 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
+import java.util.ArrayList;
+
 /**
  * Created by codecadet on 30/05/17.
  */
@@ -18,12 +20,13 @@ public class Game {
     private Grid grid;
     private Mouse mouse;
     private Snake snake;
-    private Food food;
+    //private Food food;
 
     private Picture[] coins;
 
     private GameOver gameover;
 
+    private ArrayList<Food> foods;
 
 
 
@@ -40,8 +43,10 @@ public class Game {
         grid = new SimplegfxGrid(24, 24);
         mouse = new Mouse(grid.makeGridPosition(20, 20));
         snake = new Snake(grid.makeGridPosition(4, 4));
-        food = new Food(grid.makeGridPosition());
+        foods = new ArrayList<>();//new Food(grid.makeGridPosition());
         gameover = new GameOver();
+
+        foods.add(new Food(grid.makeGridPosition()));
 
 
         coins = new Picture[6];
@@ -101,6 +106,7 @@ public class Game {
 
     public void checkSnakeEatFoodorPoop() {
 
+        for (Food food: foods){
         food.getPosition();
 
         // check collision to food while its not poop
@@ -108,33 +114,40 @@ public class Game {
                 && snake.getPosition().getRow() == (food.getPosition().getRow())
                 && !food.isPooped()) {
             food.snakeEat();
-            food = new Food(grid.makeGridPosition());
+            //food = new Food(grid.makeGridPosition());
+            foods.add(new Food(grid.makeGridPosition()));
+            return;
+        }
         }
 
         // check collision to poop
-        if (snake.getPosition().getCol() == (food.getPosition().getCol())
-                && snake.getPosition().getRow() == (food.getPosition().getRow())
-                && food.isPooped()) {
+        for (Food food: foods) {
+            if (snake.getPosition().getCol() == (food.getPosition().getCol())
+                    && snake.getPosition().getRow() == (food.getPosition().getRow())
+                    && food.isPooped()) {
 
-            food.snakeEatPoop();
+                food.snakeEatPoop();
 
-            try {
-                Thread.sleep(2000);
+                try {
+                    Thread.sleep(2000);
 
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                snake.setPosition(grid.makeGridPosition(2000, 2000));
+                snake.die();
+                snake = new Snake(grid.makeGridPosition(4, 4));
+                snakeLifes--;
+
+                mouse.die();
+                mouse = new Mouse(grid.makeGridPosition(20, 20));
+
+                //food = new Food(grid.makeGridPosition());
+                foods.add(new Food(grid.makeGridPosition()));
+                return;
+                //System.out.println("Snake lifes left " + snakeLifes);
+
             }
-            snake.setPosition(grid.makeGridPosition(2000, 2000));
-            snake.die();
-            snake = new Snake(grid.makeGridPosition(4, 4));
-            snakeLifes--;
-
-            mouse.die();
-            mouse = new Mouse(grid.makeGridPosition(20, 20));
-
-            food = new Food(grid.makeGridPosition());
-            System.out.println("Snake lifes left " + snakeLifes);
-
         }
 
 
@@ -143,14 +156,18 @@ public class Game {
 
     public void detectMouseEatingFood() {
 
-        food.getPosition();
-        // System.out.println(mouse.getPosition().getCol() + " " + mouse.getPosition().getRow());
-        // System.out.println(food.getPosition().getCol() + " " + mouse.getPosition().getRow());
-        if (mouse.getPosition().getCol() == (food.getPosition().getCol())
-                && mouse.getPosition().getRow() == (food.getPosition().getRow())) {
-            food.makePoop();
-            food.foodOrPoop();
-            food = new Food(grid.makeGridPosition());
+        for (Food food: foods) {
+            food.getPosition();
+            // System.out.println(mouse.getPosition().getCol() + " " + mouse.getPosition().getRow());
+            // System.out.println(food.getPosition().getCol() + " " + mouse.getPosition().getRow());
+            if (mouse.getPosition().getCol() == (food.getPosition().getCol())
+                    && mouse.getPosition().getRow() == (food.getPosition().getRow())) {
+                food.makePoop();
+                food.foodOrPoop();
+                //food = new Food(grid.makeGridPosition());
+                foods.add(new Food(grid.makeGridPosition()));
+                return;
+            }
         }
     }
 
